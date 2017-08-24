@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -20,13 +22,16 @@ public class Character {
 	private String firstName;
 	@Column(name = "CHARACTER_LASTNAME")
 	private String lastName;
-	private House house;
 	@Column(name = "CHARACTER_GENDER")
 	private String gender;
 	@Column(name = "CHARACTER_HEIGHT")
 	private int height; // in centimeters??
 	@Column(name = "CHARACTER_STATUS")
-	private String status; // High-born, flea-bottom/peasant, pirate, smuggler
+	@ManyToOne //? 
+	private Status status; // High-born, flea-bottom/peasant, pirate, smuggler
+	@Column (name="CHARACTER_WEAPONS")
+	@OneToOne //? 
+	private Weapons weapons; //Swords, axes, daggers, direwolf
 	@Column(name = "CHARACTER_ALIAS")
 	private String alias;
 
@@ -35,15 +40,13 @@ public class Character {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Character(int id, String firstName, String lastName, String gender, int height, String status,
-			String alias) {
+	public Character(int id, String firstName, String lastName, String gender, int height, String alias) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;
 		this.height = height;
-		this.status = status;
 		this.alias = alias;
 	}
 
@@ -87,14 +90,6 @@ public class Character {
 		this.height = height;
 	}
 
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
 	public String getAlias() {
 		return alias;
 	}
@@ -102,5 +97,8 @@ public class Character {
 	public void setAlias(String alias) {
 		this.alias = alias;
 	}
-
 }
+	
+	
+
+	

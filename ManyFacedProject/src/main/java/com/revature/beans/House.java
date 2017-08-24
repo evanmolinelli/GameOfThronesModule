@@ -17,23 +17,26 @@ public class House {
 	@Column(name = "HOUSE_NUMBERS_MEMBERS")
 	private int numberOfMembers;
 	@Column(name = "HOUSE_LOCATION")
-	private String location;
+	@ManyToOne // ? 
+	private Location location;
+	@OneToOne
+	private Sigil sigil; 
 	@Column(name = "HOUSE_LORD")
 	private String lordOfHouse; // king or queen of the house
+	
 
 	public House() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public House(int houseId, String houseName, String houseSigil, int numberOfMembers, String location,
+	public House(int houseId, String houseName, String houseSigil, int numberOfMembers, 
 			String lordOfHouse) {
 		super();
 		this.houseId = houseId;
 		this.houseName = houseName;
 		this.houseSigil = houseSigil;
 		this.numberOfMembers = numberOfMembers;
-		this.location = location;
 		this.lordOfHouse = lordOfHouse;
 	}
 
@@ -67,14 +70,6 @@ public class House {
 
 	public void setNumberOfMembers(int numberOfMembers) {
 		this.numberOfMembers = numberOfMembers;
-	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
 	}
 
 	public String getLordOfHouse() {
