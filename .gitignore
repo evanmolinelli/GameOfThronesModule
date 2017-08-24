@@ -15,6 +15,7 @@ Servers/
 **/.recommenders/**
 **/Servers
 **/.springBeans
+**/dao-beans.xml
 
 #IDEA
 **/.idea/
