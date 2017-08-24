@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -19,6 +21,9 @@ public class Weapons {
 	private int weaponId;
 	@Column(name = "WEAPON_NAME")
 	private String weaponName;
+	@OneToOne
+	@JoinColumn(name="WEAPON_ID", nullable=true)
+	private Character character;
 
 	public Weapons() {
 		super();

@@ -20,7 +20,7 @@ public class Status {
 	private int id; 
 	@Column(name="STATUS_NAME")
 	private String status; 
-	@OneToMany // ? 
+	@OneToMany(mappedBy="character")
 	private Character character;
 	
 	public Status() {

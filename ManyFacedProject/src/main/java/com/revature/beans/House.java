@@ -17,9 +17,10 @@ public class House {
 	@Column(name = "HOUSE_NUMBERS_MEMBERS")
 	private int numberOfMembers;
 	@Column(name = "HOUSE_LOCATION")
-	@ManyToOne // ? 
+	@ManyToOne 
+	@JoinColumn(name="LOCATION_ID", nullable=false, unique=true)
 	private Location location;
-	@OneToOne
+	@OneToOne(mappedBy="house")
 	private Sigil sigil; 
 	@Column(name = "HOUSE_LORD")
 	private String lordOfHouse; // king or queen of the house

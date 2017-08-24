@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
@@ -27,10 +28,11 @@ public class Character {
 	@Column(name = "CHARACTER_HEIGHT")
 	private int height; // in centimeters??
 	@Column(name = "CHARACTER_STATUS")
-	@ManyToOne //? 
+	@ManyToOne 
+	@JoinColumn(name="WEAPON_ID", nullable=false)
 	private Status status; // High-born, flea-bottom/peasant, pirate, smuggler
 	@Column (name="CHARACTER_WEAPONS")
-	@OneToOne //? 
+	@OneToOne(mappedBy="character") //? 
 	private Weapons weapons; //Swords, axes, daggers, direwolf
 	@Column(name = "CHARACTER_ALIAS")
 	private String alias;
