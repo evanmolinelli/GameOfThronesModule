@@ -1,5 +1,8 @@
 package com.revature.beans;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,8 +23,8 @@ public class Status {
 	private int id; 
 	@Column(name="STATUS_NAME")
 	private String status; 
-	@OneToMany(mappedBy="character")
-	private Character character;
+	@OneToMany(mappedBy="status")
+	private Set<Character> character;
 	
 	public Status() {
 		super();

@@ -1,6 +1,7 @@
 package com.revature.beans;
 
 import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,7 +24,7 @@ public class Location {
 	@Column(name = "LOCATION_NAME")
 	private String name;
 	@OneToMany(mappedBy = "location") // relationship owner
-	private HashSet<House> house;
+	private Set<House> house;
 
 	public Location() {
 		super();
@@ -53,7 +54,7 @@ public class Location {
 		this.name = name;
 	}
 
-	public HashSet<House> getHouse() {
+	public Set<House> getHouse() {
 		return house;
 	}
 

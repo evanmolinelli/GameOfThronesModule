@@ -1,5 +1,7 @@
 package com.revature.beans;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity // mapped to Hibernate
@@ -8,15 +10,19 @@ public class House {
 
 	@Id // this field is the primary key identifier
 	@Column(name = "HOUSE_ID") // Using sql key words i.e. ID
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="gen")
+	@SequenceGenerator(name="gen", sequenceName="HOUSE_BEAN_SEQ")
 	private int houseId;
+	
+	@OneToMany(mappedBy="house")
+	private Set<Character> character;
 	@Column(name = "HOUSE_NAME")
 	private String houseName;
 	@Column(name = "HOUSE_SIGIL")
 	private String houseSigil;
 	@Column(name = "HOUSE_NUMBERS_MEMBERS")
 	private int numberOfMembers;
-	@Column(name = "HOUSE_LOCATION")
+
 	@ManyToOne 
 	@JoinColumn(name="LOCATION_ID", nullable=false, unique=true)
 	private Location location;
