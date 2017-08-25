@@ -49,7 +49,7 @@ public class Character {
 
 	public Character(int id, String firstName, String lastName, String gender, int height, String alias) {
 		super();
-		this.id = id;
+	
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;

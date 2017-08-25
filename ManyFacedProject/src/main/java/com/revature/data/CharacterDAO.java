@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.revature.beans.Character;
+
 public class CharacterDAO {
 	
 	private SessionFactory sessionFactory;

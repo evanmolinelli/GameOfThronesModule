@@ -6,11 +6,11 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.revature.beans.ComponentA;
 import com.revature.beans.House;
+import com.revature.data.HouseDAO;
 
 
-public class HouseDAOTest {
+public class PoopDAOTest {
 	
 	private static ApplicationContext context; 
 	
@@ -19,7 +19,7 @@ public class HouseDAOTest {
 	
 	public static void initialize() {
 		context = 
-				new ClassPathXmlApplicationContext("classpath*:beans.xml"); //classpath will find anything ending in beans.xml
+				new ClassPathXmlApplicationContext("classpath*:dao-beans.xml"); //classpath will find anything ending in beans.xml
 		System.out.println("Before context.getBean");
 		
 		
@@ -28,16 +28,20 @@ public class HouseDAOTest {
 	@Transactional
 	public void testCreate() {
 		
-		House bean = new House(); 
-		System.out.println(bean.toString()); 
-		bean.setHouseId(1);
-		bean.setHouseName("Winterfell");
-		bean.setHouseSigil("wolf");
-		bean.setLordOfHouse("Ned stark ");
-		bean.setNumberOfMembers(10);
+		HouseDAO bean = context.getBean(HouseDAO.class);
 		
-		ComponentA compA = (ComponentA) context.getBean(ComponentA.class);
-		compA.create(bean);
+		
+		House b = new House(); 
+		System.out.println(bean.toString()); 
+		b.setHouseId(1);
+		b.setHouseName("Winterfell");
+		b.setHouseSigil("wolf");
+		b.setLordOfHouse("Ned stark ");
+		b.setNumberOfMembers(10);
+		
+		bean.create(b);
+		
+
 		System.out.println("Created");
 		
 	}
