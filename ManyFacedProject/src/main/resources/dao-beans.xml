@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
@@ -9,21 +8,22 @@
 
 	<!-- namespaces: beans, context, tx -->
 	<tx:annotation-driven /> <!-- @Transactional -->
-	<!-- 1. DataSource -->
+	<!-- 1.DataSource bean -->
 	<bean name="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+		<property name="driverClassName" value="oracle.jdbc.OracleDriver"></property>
 		<property name="url" value="#{systemEnvironment['DB_URL']}"/>
-		<property name="username" value="evan"/>
-		<property name="password" value="tormund"/>
+		<!-- #{systemEnvironment['DB_URL']} -->
+		<property name="username" value="evan"></property>
+		<property name="password" value="tormund"></property>
 	</bean>
 	
-	<!-- 2. SessionFactory -->
+	<!-- 2.SessionFactory bean -->
 	<bean name="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="ManyFacedProject" /><!-- @Entity -->
+		<property name="packagesToScan" value="com.revature.beans" /><!-- @Entity -->
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
 				<prop key="hibernate.dialect">
 					org.hibernate.dialect.Oracle10gDialect
 				</prop>
@@ -31,14 +31,14 @@
 		</property>
 	</bean>
 	
-	<!-- 3. TransactionManager -->
-	<bean name="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+	<!-- 3.TransactionManager bean -->
+	<bean name="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	
-	<!-- 4. DAO -->
+	<!-- 4.DAO bean -->
 	<!-- <bean name="gameDAO" class="com.revature.data.GameDAO">
-		<property name="sessionFactory" ref="sessionFactory" />
+		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean> -->
-	
+
 </beans>

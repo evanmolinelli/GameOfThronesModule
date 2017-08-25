@@ -17,7 +17,8 @@ public class Character {
 
 	@Id // this field is the primary key identifier
 	@Column(name = "CHAR_ID") // Using sql key words i.e. ID
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="gen")
+	@SequenceGenerator(name="gen", sequenceName="CHARACTER_BEAN_SEQ")
 	private int id;
 	@Column(name = "CHARACTER_FIRSTNAME")
 	private String firstName;
@@ -27,11 +28,15 @@ public class Character {
 	private String gender;
 	@Column(name = "CHARACTER_HEIGHT")
 	private int height; // in centimeters??
-	@Column(name = "CHARACTER_STATUS")
+	
 	@ManyToOne 
-	@JoinColumn(name="WEAPON_ID", nullable=false)
+	@JoinColumn(name="HOUSE_ID", nullable=false)
+	private House house;
+	
+	@ManyToOne 
+	@JoinColumn(name="STATUS_ID", nullable=false)
 	private Status status; // High-born, flea-bottom/peasant, pirate, smuggler
-	@Column (name="CHARACTER_WEAPONS")
+
 	@OneToOne(mappedBy="character") //? 
 	private Weapons weapons; //Swords, axes, daggers, direwolf
 	@Column(name = "CHARACTER_ALIAS")
