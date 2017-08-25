@@ -3,6 +3,7 @@ package com.revature.data;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -16,6 +17,7 @@ import com.revature.beans.House;
 
 public class HouseDAO {
 	
+	@Autowired
 	private SessionFactory sessionFactory; 
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {

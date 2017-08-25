@@ -47,9 +47,8 @@ public class Character {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Character(int id, String firstName, String lastName, String gender, int height, String alias) {
+	public Character(String firstName, String lastName, String gender, int height, String alias) {
 		super();
-		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;

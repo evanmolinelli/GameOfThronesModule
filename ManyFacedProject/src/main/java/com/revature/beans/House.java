@@ -58,6 +58,14 @@ public class House {
 	public String getHouseName() {
 		return houseName;
 	}
+	
+	public Set<Character> getCharacter() {
+		return character;
+	}
+
+	public void setCharacter(Set<Character> character) {
+		this.character = character;
+	}
 
 	public void setHouseName(String houseName) {
 		this.houseName = houseName;
