@@ -24,7 +24,7 @@ public class House {
 	private int numberOfMembers;
 
 	@ManyToOne 
-	@JoinColumn(name="LOCATION_ID", nullable=false, unique=true)
+	@JoinColumn(name="LOCATION_ID", nullable=false)
 	private Location location;
 	@OneToOne(mappedBy="house")
 	private Sigil sigil; 
