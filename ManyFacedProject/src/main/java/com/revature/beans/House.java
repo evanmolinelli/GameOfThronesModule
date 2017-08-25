@@ -37,10 +37,10 @@ public class House {
 		// TODO Auto-generated constructor stub
 	}
 
-	public House(int houseId, String houseName, String houseSigil, int numberOfMembers, 
+	public House(String houseName, String houseSigil, int numberOfMembers, 
 			String lordOfHouse) {
 		super();
-		this.houseId = houseId;
+
 		this.houseName = houseName;
 		this.houseSigil = houseSigil;
 		this.numberOfMembers = numberOfMembers;
@@ -86,5 +86,14 @@ public class House {
 	public void setLordOfHouse(String lordOfHouse) {
 		this.lordOfHouse = lordOfHouse;
 	}
+
+	@Override
+	public String toString() {
+		return "House [houseId=" + houseId + ", character=" + character + ", houseName=" + houseName + ", houseSigil="
+				+ houseSigil + ", numberOfMembers=" + numberOfMembers + ", location=" + location + ", sigil=" + sigil
+				+ ", lordOfHouse=" + lordOfHouse + "]";
+	}
+	
+	
 
 }
