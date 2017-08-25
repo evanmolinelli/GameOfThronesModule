@@ -23,6 +23,10 @@ public class HouseDAO {
 	}
 	
 //	@Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	
+	public void go() {
+		System.out.println("hello");
+	}
 	public void create(House house) {
 		//opens a session, beings transaction 
 		System.out.println("poop");
@@ -45,6 +49,10 @@ public class HouseDAO {
 	public List<House> findAll() {
 		return sessionFactory.getCurrentSession()
 				.createCriteria(House.class).list(); 
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(System.getenv("DB_URL")); 
 	}
 
 }

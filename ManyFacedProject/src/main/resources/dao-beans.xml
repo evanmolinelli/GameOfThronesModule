@@ -11,7 +11,7 @@
 	<!-- 1.DataSource bean -->
 	<bean name="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="oracle.jdbc.OracleDriver"></property>
-		<property name="url" value="#{systemEnvironment['DB_URL']}"/>
+		<property name="url" value= "#{systemEnvironment['DB_URL']}" />
 		<!-- #{systemEnvironment['DB_URL']} -->
 		<property name="username" value="evan"></property>
 		<property name="password" value="tormund"></property>
