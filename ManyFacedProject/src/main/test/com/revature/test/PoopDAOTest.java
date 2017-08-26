@@ -33,11 +33,11 @@ public class PoopDAOTest {
 		
 		House b = new House(); 
 		System.out.println(bean.toString()); 
-		b.setHouseId(1);
 		b.setHouseName("Winterfell");
-		b.setHouseSigil("wolf");
+		b.setHouseSigil("Wolf");
 		b.setLordOfHouse("Ned stark ");
 		b.setNumberOfMembers(10);
+		b.setLocation();
 		
 		bean.create(b);
 		
