@@ -9,19 +9,18 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
-<<<<<<< HEAD:ManyFacedProject/src/main/test/com/revature/test/HouseDAOTest.java
 import com.revature.beans.*;
 import com.revature.beans.Character;
-=======
 import com.revature.beans.House;
->>>>>>> 93c5e93306cdc126129c6f570a2c4da8e2bd2392:ManyFacedProject/src/main/test/com/revature/test/PoopDAOTest.java
 import com.revature.data.HouseDAO;
+import com.revature.data.LocationDao;
 
 
-public class PoopDAOTest {
+public class HouseDAOTest {
 	
 	private static ApplicationContext context; 
 	private static HouseDAO houseDAO;
+	private static LocationDao locationDAO;
 	
 	@BeforeClass
 	public static void initialize() {
@@ -29,45 +28,29 @@ public class PoopDAOTest {
 				new ClassPathXmlApplicationContext("classpath*:dao-beans.xml"); //classpath will find anything ending in beans.xml
 		System.out.println("Before context.getBean");
 		houseDAO = context.getBean(HouseDAO.class);
+		locationDAO = context.getBean(LocationDao.class);
 		
 	}
 	
 	@Test
 	@Transactional
 	public void testCreate() {
-		
-<<<<<<< HEAD:ManyFacedProject/src/main/test/com/revature/test/HouseDAOTest.java
-		
 		Character character = new Character("Jon", "Snow", "male", 58, "King of the North");
 		HashSet<Character>chars = new HashSet<Character>();
+		Location loc = locationDAO.findAll().get(0);
 		chars.add(character);
 		House bean = new House();  
-		bean.setHouseId(1);
-		bean.setHouseName("Winterfell");
-		bean.setHouseSigil("wolf");
-		bean.setLordOfHouse("Ned stark");
-		bean.setNumberOfMembers(10);
-		bean.setCharacter(chars);
+		bean.setHouseId(2);
+		bean.setHouseName("Dorn");
+		bean.setHouseSigil("Snake");
+		bean.setLordOfHouse("Oberyn Martell");
+		bean.setNumberOfMembers(400);
+		bean.setCharacter(null);
+		bean.setLocation(loc);
 		System.out.println(bean.toString());
 		houseDAO.create(bean);
 //		ComponentA compA = (ComponentA) context.getBean(ComponentA.class);
 //		compA.create(bean);
-=======
-		HouseDAO bean = context.getBean(HouseDAO.class);
-		
-		
-		House b = new House(); 
-		System.out.println(bean.toString()); 
-		b.setHouseId(1);
-		b.setHouseName("Winterfell");
-		b.setHouseSigil("wolf");
-		b.setLordOfHouse("Ned stark ");
-		b.setNumberOfMembers(10);
-		
-		bean.create(b);
-		
-
->>>>>>> 93c5e93306cdc126129c6f570a2c4da8e2bd2392:ManyFacedProject/src/main/test/com/revature/test/PoopDAOTest.java
 		System.out.println("Created");
 		
 	}

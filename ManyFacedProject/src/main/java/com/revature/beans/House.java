@@ -47,6 +47,22 @@ public class House {
 		this.lordOfHouse = lordOfHouse;
 	}
 
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+	public Sigil getSigil() {
+		return sigil;
+	}
+
+	public void setSigil(Sigil sigil) {
+		this.sigil = sigil;
+	}
+
 	public int getHouseId() {
 		return houseId;
 	}

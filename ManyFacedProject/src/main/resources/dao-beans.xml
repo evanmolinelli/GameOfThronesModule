@@ -23,7 +23,7 @@
 		<property name="packagesToScan" value="com.revature.beans" /><!-- @Entity -->
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.dialect">
 					org.hibernate.dialect.Oracle10gDialect
 				</prop>
@@ -38,6 +38,9 @@
 	</bean>
  	<!-- 4.DAO bean -->
 	<bean name="houseDAO" class="com.revature.data.HouseDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean name="locationDAO" class="com.revature.data.LocationDao">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 </beans>
