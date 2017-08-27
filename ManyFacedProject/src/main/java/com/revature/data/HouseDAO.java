@@ -25,7 +25,6 @@ public class HouseDAO {
 	}
 	
 //	@Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-	
 	public void create(House house) {
 		//opens a session, beings transaction 
 		sessionFactory.getCurrentSession().save(house); 
@@ -47,9 +46,4 @@ public class HouseDAO {
 		return sessionFactory.getCurrentSession()
 				.createCriteria(House.class).list(); 
 	}
-	
-	public static void main(String[] args) {
-		System.out.println(System.getenv("DB_URL")); 
-	}
-
 }
