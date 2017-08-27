@@ -39,12 +39,11 @@ public class HouseDAOTest {
 		HashSet<Character>chars = new HashSet<Character>();
 		Location loc = locationDAO.findAll().get(0);
 		chars.add(character);
-		House bean = new House();  
-		bean.setHouseId(2);
-		bean.setHouseName("Dorn");
-		bean.setHouseSigil("Snake");
-		bean.setLordOfHouse("Oberyn Martell");
-		bean.setNumberOfMembers(400);
+		House bean = new House();
+		bean.setHouseName("Mormont");
+		bean.setHouseSigil("Dog");
+		bean.setLordOfHouse("Jorah Mormont");
+		bean.setNumberOfMembers(555);
 		bean.setCharacter(null);
 		bean.setLocation(loc);
 		System.out.println(bean.toString());
