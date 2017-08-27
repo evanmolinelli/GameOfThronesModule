@@ -22,7 +22,7 @@ public class Weapons {
 	@Column(name = "WEAPON_NAME")
 	private String weaponName;
 	@OneToOne
-	@JoinColumn(name="WEAPON_ID", nullable=true)
+	@JoinColumn(name="CHARACTER_ID", nullable=true)
 	private Character character;
 
 	public Weapons() {

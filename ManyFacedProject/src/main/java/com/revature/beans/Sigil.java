@@ -21,10 +21,6 @@ public class Sigil {
 	private int sigilId;
 	@Column(name = "SIGIL_NAME")
 	private String sigilName;
-	@Column(name  = "SIGI_POOP")
-	private String sigilPoop; 
-	@Column(name  = "SIGI_POOP2")
-	private String sigilPoop2; 
 	@OneToOne
 	@JoinColumn(name="HOUSE_ID", nullable=false, unique=true)
 	private House house;

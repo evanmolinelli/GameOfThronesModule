@@ -37,7 +37,6 @@ public class PoopDAOTest {
 		b.setHouseSigil("Wolf");
 		b.setLordOfHouse("Ned stark ");
 		b.setNumberOfMembers(10);
-		b.setLocation();
 		
 		bean.create(b);
 		

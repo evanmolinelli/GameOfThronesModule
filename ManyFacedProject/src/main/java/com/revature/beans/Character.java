@@ -47,9 +47,8 @@ public class Character {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Character(int id, String firstName, String lastName, String gender, int height, String alias) {
+	public Character(String firstName, String lastName, String gender, int height, String alias) {
 		super();
-	
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.gender = gender;
@@ -103,6 +102,22 @@ public class Character {
 
 	public void setAlias(String alias) {
 		this.alias = alias;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status; 
+	}
+	
+	public Status getStatus() {
+		return status;
+	}
+	
+	public void setHouse(House house) {
+		this.house = house;
+	}
+	
+	public House getHosue() {
+		return house; 
 	}
 }
 	
