@@ -103,6 +103,22 @@ public class Character {
 	public void setAlias(String alias) {
 		this.alias = alias;
 	}
+
+	public void setStatus(Status status) {
+		this.status = status; 
+	}
+	
+	public Status getStatus() {
+		return status;
+	}
+	
+	public void setHouse(House house) {
+		this.house = house;
+	}
+	
+	public House getHosue() {
+		return house; 
+	}
 }
 	
 	
