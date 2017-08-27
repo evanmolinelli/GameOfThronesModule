@@ -40,13 +40,19 @@
 	<bean name="houseDAO" class="com.revature.data.HouseDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<bean name="locationDAO" class="com.revature.data.LocationDao">
+	<bean name="locationDAO" class="com.revature.data.LocationDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<bean name="characeterDAO" class="com.revature.data.CharacterDAO"> 
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<bean name="statusDAO" class="com.revature.data.StatusDao">
+	<bean name="statusDAO" class="com.revature.data.StatusDAO">
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	<bean name="sigilDAO" class="com.revature.data.SigilDAO">
+		<property name="sessionFactory" ref="sessionFactory" ></property>
+	</bean>
+	<bean name="weaponsDAO" class="com.revature.data.WeaponDAO">
 		<property name="sessionFactory" ref="sessionFactory" ></property>
 	</bean>
 </beans>

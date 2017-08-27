@@ -13,14 +13,14 @@ import com.revature.beans.*;
 import com.revature.beans.Character;
 import com.revature.beans.House;
 import com.revature.data.HouseDAO;
-import com.revature.data.LocationDao;
+import com.revature.data.LocationDAO;
 
 
 public class HouseDAOTest {
 	
 	private static ApplicationContext context; 
 	private static HouseDAO houseDAO;
-	private static LocationDao locationDAO;
+	private static LocationDAO locationDAO;
 	
 	@BeforeClass
 	public static void initialize() {
@@ -28,7 +28,7 @@ public class HouseDAOTest {
 				new ClassPathXmlApplicationContext("classpath*:dao-beans.xml"); //classpath will find anything ending in beans.xml
 		System.out.println("Before context.getBean");
 		houseDAO = context.getBean(HouseDAO.class);
-		locationDAO = context.getBean(LocationDao.class);
+		locationDAO = context.getBean(LocationDAO.class);
 		
 	}
 	

@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.revature.beans.Character;
 import com.revature.beans.Location;
 
-public class LocationDao {
+public class LocationDAO {
 
 private SessionFactory sessionFactory;
 	

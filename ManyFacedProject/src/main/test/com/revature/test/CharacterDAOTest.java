@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.data.CharacterDAO;
 import com.revature.data.HouseDAO;
-import com.revature.data.StatusDao;
+import com.revature.data.StatusDAO;
 import com.revature.beans.Character;
 import com.revature.beans.House;
 import com.revature.beans.Status;
@@ -17,7 +17,7 @@ public class CharacterDAOTest {
 	
 	private static ApplicationContext context; 
 	private static CharacterDAO characterDAO; 
-	private static StatusDao statusDAO;
+	private static StatusDAO statusDAO;
 	private static HouseDAO houseDAO; 
 	
 	@BeforeClass
@@ -26,7 +26,7 @@ public class CharacterDAOTest {
 				new ClassPathXmlApplicationContext("classpath*:dao-beans.xml");
 		System.out.println("Before context.getBean"); 
 		characterDAO= context.getBean(CharacterDAO.class); 
-		statusDAO = context.getBean(StatusDao.class);
+		statusDAO = context.getBean(StatusDAO.class);
 		houseDAO = context.getBean(HouseDAO.class);
 	}
 	

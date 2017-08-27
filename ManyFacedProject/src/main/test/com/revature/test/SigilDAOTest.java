@@ -12,13 +12,13 @@ import com.revature.beans.Status;
 import com.revature.data.CharacterDAO;
 import com.revature.data.HouseDAO;
 import com.revature.data.SigilDAO;
-import com.revature.data.StatusDao;
+import com.revature.data.StatusDAO;
 
 public class SigilDAOTest {
 
 	private static ApplicationContext context; 
 	private static CharacterDAO characterDAO; 
-	private static StatusDao statusDAO;
+	private static StatusDAO statusDAO;
 	private static HouseDAO houseDAO; 
 	private static SigilDAO sigilDAO;
 	
@@ -28,7 +28,7 @@ public class SigilDAOTest {
 				new ClassPathXmlApplicationContext("classpath*:dao-beans.xml");
 		System.out.println("Before context.getBean"); 
 		characterDAO= context.getBean(CharacterDAO.class); 
-		statusDAO = context.getBean(StatusDao.class);
+		statusDAO = context.getBean(StatusDAO.class);
 		houseDAO = context.getBean(HouseDAO.class);
 		sigilDAO = context.getBean(SigilDAO.class);
 	}

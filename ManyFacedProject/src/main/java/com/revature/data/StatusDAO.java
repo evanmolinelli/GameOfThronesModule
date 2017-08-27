@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.beans.Status;
 
-public class StatusDao {
+public class StatusDAO {
 
 	private SessionFactory sessionFactory;
 
@@ -29,8 +29,4 @@ public class StatusDao {
 
 	}
 	
-	public static void main(String[] args) {
-		StatusDao s = new StatusDao(); 
-		System.out.println(s.findAll().get(0));
-	}
 }
