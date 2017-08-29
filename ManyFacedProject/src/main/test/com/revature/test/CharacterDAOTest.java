@@ -40,11 +40,11 @@ public class CharacterDAOTest {
 		
 		Character bean = new Character(); 
 		bean.setId(1);
-		bean.setFirstName("Arya");
+		bean.setFirstName("Sansa");
 		bean.setLastName("Stark");
 		bean.setGender("Female");
-		bean.setHeight(120);
-		bean.setAlias("Baby-Face Assassin");
+		bean.setHeight(90);
+		bean.setAlias("Lady of Winterfell");
 		bean.setStatus(status); 
 		bean.setHouse(house);
 		System.out.println(bean.toString());

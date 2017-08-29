@@ -3,6 +3,7 @@ package com.revature.data;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,6 +39,14 @@ public class CharacterDAO {
 	public List<Character> findAll() {
 		return sessionFactory.getCurrentSession()
 				.createCriteria(Character.class).list(); 
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Character> findOne(Integer id) {
+		return sessionFactory.getCurrentSession().createCriteria(Character.class)
+				.add(Restrictions.eq("CHAR_ID", id))
+				.list(); 
 	}
 
 }

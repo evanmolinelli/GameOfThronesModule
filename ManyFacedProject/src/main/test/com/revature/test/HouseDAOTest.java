@@ -36,7 +36,7 @@ public class HouseDAOTest {
 	public void testCreate() {
 		Character character = new Character("Jon", "Snow", "male", 58, "King of the North");
 		HashSet<Character>chars = new HashSet<Character>();
-		Location loc = locationDAO.findAll().get(0);
+		Location loc = locationDAO.findAll().get(2);
 		chars.add(character);
 		House bean = new House();
 		bean.setHouseName("Mormont");
