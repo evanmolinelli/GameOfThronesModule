@@ -1,7 +1,6 @@
 package com.revature.test;
 
 import java.util.HashSet;
-import java.util.Set;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
