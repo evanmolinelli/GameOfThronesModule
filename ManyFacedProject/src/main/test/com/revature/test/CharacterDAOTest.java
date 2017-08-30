@@ -13,6 +13,7 @@ import com.revature.data.StatusDAO;
 import com.revature.beans.Character;
 import com.revature.beans.House;
 import com.revature.beans.Status;
+import com.revature.beans.User;
 
 public class CharacterDAOTest {
 	
@@ -32,13 +33,13 @@ public class CharacterDAOTest {
 	}
 	
 	@Test
-	@Ignore
 	@Transactional
 	
 	public void testCreate() {
 		
 		Status status = statusDAO.findAll().get(0); 
 		House house = houseDAO.findAll().get(0); 
+		User user = new User(50,"Alvin","poop");  //get as object; 
 		
 		Character bean = new Character(); 
 		bean.setId(1);
@@ -49,6 +50,7 @@ public class CharacterDAOTest {
 		bean.setAlias("Lady of Winterfell");
 		bean.setStatus(status); 
 		bean.setHouse(house);
+		bean.setUser(user);
 		System.out.println(bean.toString());
 		
 		characterDAO.create(bean);
@@ -67,6 +69,7 @@ public class CharacterDAOTest {
 	}
 	
 	@Test
+	@Ignore
 	public void testUpdate() {
 		
 		Character bean = characterDAO.findOne(50);
@@ -90,6 +93,7 @@ public class CharacterDAOTest {
 	}
 	
 	@Test
+	@Ignore
 	public void testFindOne() {
 		characterDAO.findOne(50); 
 		System.out.println("returned" + characterDAO.findOne(50).toString()); 
