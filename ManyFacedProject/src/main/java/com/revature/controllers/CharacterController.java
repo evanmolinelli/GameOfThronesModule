@@ -51,12 +51,12 @@ public class CharacterController {
 		return dao.findAll();
 	}
 	
-//	@RequestMapping(value="/character/{id}", method=RequestMethod.GET,
-//			produces=MediaType.APPLICATION_JSON_VALUE)
-//	@ResponseBody
-//	public List <Character> findOne() {
-//		return dao.findOne();
-//	}
+	@RequestMapping(value="/character/{id}", method=RequestMethod.GET,
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public Character findOne() {
+		return dao.findOne(50);
+	}
 	
 
 }

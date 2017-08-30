@@ -58,6 +58,15 @@ public class CharacterDAOTest {
 	}
 	
 	@Test
+	@Ignore
+	public void testDelete() {
+		
+		Character bean = characterDAO.findOne(50);
+		
+		characterDAO.delete(bean);
+	}
+	
+	@Test
 	public void testUpdate() {
 		
 		Character bean = characterDAO.findOne(50);
