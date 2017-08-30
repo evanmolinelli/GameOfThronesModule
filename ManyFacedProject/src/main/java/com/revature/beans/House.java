@@ -18,8 +18,6 @@ public class House {
 	private Set<Character> character;
 	@Column(name = "HOUSE_NAME")
 	private String houseName;
-	@Column(name = "HOUSE_SIGIL")
-	private String houseSigil;
 	@Column(name = "HOUSE_NUMBERS_MEMBERS")
 	private int numberOfMembers;
 
@@ -37,12 +35,11 @@ public class House {
 		// TODO Auto-generated constructor stub
 	}
 
-	public House(String houseName, String houseSigil, int numberOfMembers, 
+	public House(String houseName, int numberOfMembers, 
 			String lordOfHouse) {
 		super();
 
 		this.houseName = houseName;
-		this.houseSigil = houseSigil;
 		this.numberOfMembers = numberOfMembers;
 		this.lordOfHouse = lordOfHouse;
 	}
@@ -86,15 +83,7 @@ public class House {
 	public void setHouseName(String houseName) {
 		this.houseName = houseName;
 	}
-
-	public String getHouseSigil() {
-		return houseSigil;
-	}
-
-	public void setHouseSigil(String houseSigil) {
-		this.houseSigil = houseSigil;
-	}
-
+	
 	public int getNumberOfMembers() {
 		return numberOfMembers;
 	}
@@ -113,8 +102,7 @@ public class House {
 
 	@Override
 	public String toString() {
-		return "House [houseId=" + houseId + ", character=" + character + ", houseName=" + houseName + ", houseSigil="
-				+ houseSigil + ", numberOfMembers=" + numberOfMembers + ", location=" + location + ", sigil=" + sigil
+		return "House [houseId=" + houseId + ", character=" + character + ", houseName=" + houseName + ", numberOfMembers=" + numberOfMembers + ", location=" + location + ", sigil=" + sigil
 				+ ", lordOfHouse=" + lordOfHouse + "]";
 	}
 	

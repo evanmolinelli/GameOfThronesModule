@@ -52,7 +52,7 @@ public class HouseController {
 	@RequestMapping(value="/house/{id}", method=RequestMethod.GET,
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public List <House> findOne(int id) {
+	public House findOne(int id) {
 		return dao.findOne(id);
 	}
 }

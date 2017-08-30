@@ -3,6 +3,7 @@ package com.revature.test;
 import java.util.HashSet;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -32,6 +33,7 @@ public class HouseDAOTest {
 	}
 	
 	@Test
+	@Ignore
 	@Transactional
 	public void testCreate() {
 		Character character = new Character("Jon", "Snow", "male", 58, "King of the North");
@@ -40,7 +42,6 @@ public class HouseDAOTest {
 		chars.add(character);
 		House bean = new House();
 		bean.setHouseName("Targaryen");
-		bean.setHouseSigil("Dragon");
 		bean.setLordOfHouse("Daenyrys Targaryen");
 		bean.setNumberOfMembers(9875);
 		bean.setCharacter(null);
@@ -50,6 +51,14 @@ public class HouseDAOTest {
 //		ComponentA compA = (ComponentA) context.getBean(ComponentA.class);
 //		compA.create(bean);
 		System.out.println("Created");
+		
+	}
+	
+	@Test
+	@Transactional
+	public void testFindOne(){
+		
+		System.out.println("testFindOne " + houseDAO.findOne(1).toString());
 		
 	}
 
