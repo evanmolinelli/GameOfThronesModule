@@ -55,4 +55,7 @@
 	<bean name="weaponsDAO" class="com.revature.data.WeaponDAO">
 		<property name="sessionFactory" ref="sessionFactory" ></property>
 	</bean>
+	<bean name="userDAO" class="com.revature.data.UserDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 </beans>
