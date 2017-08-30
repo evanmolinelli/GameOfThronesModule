@@ -1,6 +1,9 @@
 package com.revature.data;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -22,5 +25,21 @@ public class UserDAO {
 		//opens a session, beings transaction
 		sessionFactory.getCurrentSession().save(user);
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<User> findAll() {
+		return sessionFactory.getCurrentSession()
+				.createCriteria(User.class).list();
+	}
+
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public User findOne(int id) {
+		return (User) sessionFactory.getCurrentSession().createCriteria(User.class)
+				.add(Restrictions.eq("id", id)).uniqueResult();
+//				.list().get(1);
+	}
+
 
 }

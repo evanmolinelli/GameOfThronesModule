@@ -35,21 +35,21 @@ public class HouseDAOTest {
 	}
 	
 	@Test
-	@Ignore
 	@Transactional
 	public void testCreate() {
 		Character character = new Character("Jon", "Snow", "male", 58, "King of the North");
 		HashSet<Character>chars = new HashSet<Character>();
-
-		Location loc = locationDAO.findAll().get(1);
+		Location loc = locationDAO.findAll().get(2); 
+		User user = new User(50,"Alvin","poop");  //get as object; 
+		
 		chars.add(character);
 		House bean = new House();
-		bean.setHouseName("Mormont");
-		bean.setLordOfHouse("Jorah Mormont");
-		bean.setNumberOfMembers(555);
+		bean.setHouseName("Tully");
+		bean.setLordOfHouse("Poop Tully");
+		bean.setNumberOfMembers(232);
 		bean.setCharacter(null);
 		bean.setLocation(loc);
-//		bean.setUser(user); 
+		bean.setUser(user); 
 		System.out.println(bean.toString());
 		houseDAO.create(bean);
 //		ComponentA compA = (ComponentA) context.getBean(ComponentA.class);
@@ -59,6 +59,7 @@ public class HouseDAOTest {
 	}
 	
 	@Test
+	@Ignore
 	@Transactional
 	public void testFindOne(){
 		

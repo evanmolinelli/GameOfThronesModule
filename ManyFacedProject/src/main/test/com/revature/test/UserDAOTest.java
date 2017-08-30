@@ -1,6 +1,7 @@
 package com.revature.test;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -21,11 +22,12 @@ public class UserDAOTest {
 	}
 	
 	@Test
+	@Ignore
 	public void testCreate() {
 		
 		User bean = new User(); 
 		bean.setId(1);
-		bean.setUsername("Alvin");
+		bean.setUsername("Evan");
 		bean.setPassword("poop");
 		
 		System.out.println("User created");
@@ -33,6 +35,13 @@ public class UserDAOTest {
 		userDAO.create(bean); 
 		
 		System.out.println("Username created"); 
+	}
+	
+	@Test 
+	public void testFindAll() {
+		userDAO.findAll(); 
+		System.out.println("returned: " + userDAO.findAll()); 
+		System.out.println("one " + (User) userDAO.findAll().get(1)); 
 	}
 
 }
