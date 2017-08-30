@@ -47,15 +47,16 @@ public class CharacterController {
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<Character> findAll(){
+		System.out.println("Connected?");
 		return dao.findAll();
 	}
 	
-	@RequestMapping(value="/character/{id}", method=RequestMethod.GET,
-			produces=MediaType.APPLICATION_JSON_VALUE)
-	@ResponseBody
-	public List <Character> findOne(int id) {
-		return dao.findOne(id);
-	}
+//	@RequestMapping(value="/character/{id}", method=RequestMethod.GET,
+//			produces=MediaType.APPLICATION_JSON_VALUE)
+//	@ResponseBody
+//	public List <Character> findOne() {
+//		return dao.findOne();
+//	}
 	
 
 }
