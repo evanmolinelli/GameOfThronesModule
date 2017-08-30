@@ -32,7 +32,6 @@ public class CharacterDAOTest {
 	}
 	
 	@Test
-	@Ignore
 	@Transactional
 	
 	public void testCreate() {
@@ -67,6 +66,7 @@ public class CharacterDAOTest {
 	}
 	
 	@Test
+	@Ignore
 	public void testUpdate() {
 		
 		Character bean = characterDAO.findOne(50);
