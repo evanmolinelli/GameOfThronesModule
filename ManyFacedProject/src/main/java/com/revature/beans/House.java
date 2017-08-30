@@ -28,6 +28,9 @@ public class House {
 	private Sigil sigil; 
 	@Column(name = "HOUSE_LORD")
 	private String lordOfHouse; // king or queen of the house
+	@ManyToOne 
+	@JoinColumn(name="USER_ID", nullable = false)
+	private User user; 
 	
 
 	public House() {

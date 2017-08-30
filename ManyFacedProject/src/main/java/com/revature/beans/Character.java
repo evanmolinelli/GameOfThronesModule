@@ -41,6 +41,9 @@ public class Character {
 	private Weapons weapons; //Swords, axes, daggers, direwolf
 	@Column(name = "CHARACTER_ALIAS")
 	private String alias;
+	@ManyToOne 
+	@JoinColumn(name="USER_ID", nullable = false)
+	private User user; 
 
 	public Character() {
 		super();
