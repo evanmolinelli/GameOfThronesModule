@@ -1,6 +1,7 @@
 package com.revature.test;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -31,6 +32,7 @@ public class CharacterDAOTest {
 	}
 	
 	@Test
+	@Ignore
 	@Transactional
 	
 	public void testCreate() {
@@ -53,5 +55,34 @@ public class CharacterDAOTest {
 	
 		System.out.println("Created");
 		
+	}
+	
+	@Test
+	public void testUpdate() {
+		
+		Character bean = characterDAO.findOne(50);
+		
+		bean.setFirstName("Sansa Coalskd");
+
+		System.out.println(bean.toString());
+		
+		characterDAO.update(bean);
+		
+		System.out.println("updated: " + bean.toString());
+		
+		
+	}
+	
+	@Test
+	@Ignore
+	public void testAll() {
+		characterDAO.findAll();
+		System.out.println("returned" + characterDAO.findAll().toString()); 
+	}
+	
+	@Test
+	public void testFindOne() {
+		characterDAO.findOne(50); 
+		System.out.println("returned" + characterDAO.findOne(50).toString()); 
 	}
 }

@@ -119,6 +119,14 @@ public class Character {
 	public House getHosue() {
 		return house; 
 	}
+
+	@Override
+	public String toString() {
+		return "Character [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", gender=" + gender
+				+ ", height=" + height + ", alias=" + alias + "]";
+	}
+	
+	
 }
 	
 	

@@ -45,10 +45,10 @@ public class CharacterDAO {
 
 	@SuppressWarnings("unchecked")
 	@Transactional
-	public List<Character> findOne(Integer id) {
-		return sessionFactory.getCurrentSession().createCriteria(Character.class)
-				.add(Restrictions.eq("CHAR_ID", id))
-				.list();
+	public Character findOne(int id) {
+		return (Character) sessionFactory.getCurrentSession().createCriteria(Character.class)
+				.add(Restrictions.eq("id", id)).uniqueResult();
+//				.list().get(1);
 	}
 
 }
