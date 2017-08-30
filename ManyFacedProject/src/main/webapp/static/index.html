@@ -2,11 +2,38 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Welcome Page </title>
+<title>Hello Spring MVC</title>
+<style>
+
+body{
+	background:  url(http://www.imgbase.info/images/safe-wallpapers/tv_movies/game_of_thrones/18549_game_of_thrones.jpg) no-repeat fixed center; 
+}
+
+#btn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+   }
+
+#form {
+	position: absolute;
+	top: 66%;
+	left: 45%;
+	margin: -20px -100px; 
+	display: block;
+}
+</style>
 </head>
 <body>
-
-Poop 
-
+	<div id="form">
+		<form action="pages/home.html">
+			<input id="btn" type="submit" value="ENTER THE GAME OF THRONES" />
+		</form>
+	</div>
 </body>
 </html>
