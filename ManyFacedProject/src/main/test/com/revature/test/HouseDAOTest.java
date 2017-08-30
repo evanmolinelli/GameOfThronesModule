@@ -36,13 +36,13 @@ public class HouseDAOTest {
 	public void testCreate() {
 		Character character = new Character("Jon", "Snow", "male", 58, "King of the North");
 		HashSet<Character>chars = new HashSet<Character>();
-		Location loc = locationDAO.findAll().get(2);
+		Location loc = locationDAO.findAll().get(3);
 		chars.add(character);
 		House bean = new House();
-		bean.setHouseName("Mormont");
-		bean.setHouseSigil("Dog");
-		bean.setLordOfHouse("Jorah Mormont");
-		bean.setNumberOfMembers(555);
+		bean.setHouseName("Targaryen");
+		bean.setHouseSigil("Dragon");
+		bean.setLordOfHouse("Daenyrys Targaryen");
+		bean.setNumberOfMembers(9875);
 		bean.setCharacter(null);
 		bean.setLocation(loc);
 		System.out.println(bean.toString());

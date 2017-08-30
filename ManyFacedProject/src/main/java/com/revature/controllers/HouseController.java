@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.revature.beans.Character;
 import com.revature.beans.House;
 import com.revature.data.HouseDAO;
 
@@ -48,4 +49,10 @@ public class HouseController {
 		return dao.findAll();
 	}// automagically converted object->JSON
 
+	@RequestMapping(value="/house/{id}", method=RequestMethod.GET,
+			produces=MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public List <House> findOne(int id) {
+		return dao.findOne(id);
+	}
 }

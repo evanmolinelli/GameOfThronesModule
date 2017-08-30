@@ -3,12 +3,14 @@ package com.revature.data;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.revature.beans.Character;
 import com.revature.beans.House;
 
 
@@ -24,7 +26,7 @@ public class HouseDAO {
 		this.sessionFactory = sessionFactory;
 	}
 	
-//	@Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	@Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public void create(House house) {
 		//opens a session, beings transaction 
 		sessionFactory.getCurrentSession().save(house); 
@@ -52,5 +54,13 @@ public class HouseDAO {
 	public List<House> findAll() {
 		return sessionFactory.getCurrentSession()
 				.createCriteria(House.class).list(); 
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<House> findOne(Integer id) {
+		return sessionFactory.getCurrentSession().createCriteria(House.class)
+				.add(Restrictions.eq("HOUSE_ID", id))
+				.list();
 	}
 }
