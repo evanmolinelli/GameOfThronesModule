@@ -48,7 +48,6 @@ public class CharacterDAO {
 	public Character findOne(int id) {
 		return (Character) sessionFactory.getCurrentSession().createCriteria(Character.class)
 				.add(Restrictions.eq("id", id)).uniqueResult();
-//				.list().get(1);
 	}
 
 }

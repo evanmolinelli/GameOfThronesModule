@@ -58,9 +58,8 @@ public class HouseDAO {
 	
 	@SuppressWarnings("unchecked")
 	@Transactional
-	public House findOne(Integer id) {
-		return (House) sessionFactory.getCurrentSession().get(House.class, id);
-//				.add(Restrictions.eq("HOUSE_ID", id))
-//				.list();
+	public House findOne(int id) {
+		return (House) sessionFactory.getCurrentSession().createCriteria(House.class)
+				.add(Restrictions.eq("id", id)).uniqueResult();
 	}
 }

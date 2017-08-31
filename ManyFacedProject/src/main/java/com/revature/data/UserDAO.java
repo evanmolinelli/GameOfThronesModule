@@ -33,12 +33,10 @@ public class UserDAO {
 				.createCriteria(User.class).list();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Transactional
 	public User findOne(int id) {
 		return (User) sessionFactory.getCurrentSession().createCriteria(User.class)
 				.add(Restrictions.eq("id", id)).uniqueResult();
-//				.list().get(1);
 	}
 
 
