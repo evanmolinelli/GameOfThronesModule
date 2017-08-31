@@ -12,7 +12,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="USERS")
+@Table(name="GOT_USERS")
 public class User {
 	@Id // this field is the primary key identifier
 	@Column(name = "USER_ID") // Using sql key words i.e. ID
@@ -57,7 +57,13 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + "]";
 	} 
+	
+	
 	
 	
 
