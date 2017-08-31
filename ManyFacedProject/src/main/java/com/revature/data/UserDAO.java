@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.beans.Character;
+import com.revature.beans.House;
 import com.revature.beans.User;
 
 public class UserDAO {
@@ -24,6 +25,16 @@ public class UserDAO {
 	public void create(User user) {
 		//opens a session, beings transaction
 		sessionFactory.getCurrentSession().save(user);
+	}
+	
+	@Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	public void update(User user) {
+		sessionFactory.getCurrentSession().saveOrUpdate(user);
+	}
+	
+	@Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	public void delete(User user) {
+		sessionFactory.getCurrentSession().delete(user);
 	}
 	
 	@SuppressWarnings("unchecked")

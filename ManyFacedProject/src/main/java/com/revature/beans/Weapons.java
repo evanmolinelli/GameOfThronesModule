@@ -16,8 +16,8 @@ public class Weapons {
 
 	@Id // this field is the primary key identifier
 	@Column(name = "WEAPONS_ID")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "weaponsSeq")
-	@SequenceGenerator(name = "weaponsSeq", sequenceName = "WEAPONS_BEAN_SEQ")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="gen")
+	@SequenceGenerator(name="gen", sequenceName="WEAPON_BEAN_SEQ")
 	private int weaponId;
 	@Column(name = "WEAPON_NAME")
 	private String weaponName;
@@ -30,9 +30,8 @@ public class Weapons {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Weapons(int weaponId, String weaponName) {
+	public Weapons(String weaponName) {
 		super();
-		this.weaponId = weaponId;
 		this.weaponName = weaponName;
 	}
 

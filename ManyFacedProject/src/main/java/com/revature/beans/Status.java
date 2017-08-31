@@ -35,9 +35,8 @@ public class Status {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Status(int id, String status) {
+	public Status(String status) {
 		super();
-		this.id = id;
 		this.status = status;
 	}
 

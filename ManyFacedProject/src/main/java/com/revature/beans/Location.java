@@ -22,8 +22,8 @@ public class Location {
 
 	@Id // this field is the primary key identifier
 	@Column(name = "LOCATION_ID") // Using sql key words i.e ID
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gen")
-	@SequenceGenerator(name = "gen", sequenceName = "LOCATION_BEAN_SEQ")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="gen")
+	@SequenceGenerator(name="gen", sequenceName="LOCATION_BEAN_SEQ")
 	private int id;
 	@Column(name = "LOCATION_NAME")
 	private String name;
@@ -35,9 +35,8 @@ public class Location {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Location(int id, String name, HashSet<House> house) {
+	public Location(String name, HashSet<House> house) {
 		super();
-		this.id = id;
 		this.name = name;
 		this.house = house;
 	}

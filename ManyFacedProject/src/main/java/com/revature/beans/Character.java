@@ -23,6 +23,7 @@ public class Character {
 	@Column(name = "CHAR_ID") // Using sql key words i.e. ID
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="gen")
 	@SequenceGenerator(name="gen", sequenceName="CHARACTER_BEAN_SEQ")
+	//	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	@Column(name = "CHARACTER_FIRSTNAME")
 	private String firstName;
@@ -124,10 +125,10 @@ public class Character {
 		this.house = house;
 	}
 	
-	public House getHosue() {
+	public House getHouse() {
 		return house; 
 	}
-	@JsonIgnore
+
 	public User getUser() {
 		return user;
 	}

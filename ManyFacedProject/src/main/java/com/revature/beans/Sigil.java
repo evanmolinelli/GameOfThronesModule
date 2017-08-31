@@ -16,8 +16,8 @@ public class Sigil {
 
 	@Id // this field is the primary key identifier
 	@Column(name = "SIGIL_ID")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sigilSeq")
-	@SequenceGenerator(name = "sigilSeq", sequenceName = "SIGIL_BEAN_SEQ")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="gen")
+	@SequenceGenerator(name="gen", sequenceName="SIGIL_BEAN_SEQ")
 	private int sigilId;
 	@Column(name = "SIGIL_NAME")
 	private String sigilName;
@@ -30,9 +30,8 @@ public class Sigil {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Sigil(int sigilId, String sigilName) {
+	public Sigil(String sigilName) {
 		super();
-		this.sigilId = sigilId;
 		this.sigilName = sigilName;
 	}
 
