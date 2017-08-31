@@ -2,12 +2,27 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+<script type="text/javascript" src="../homePage.js"></script>
 <title>Insert title here</title>
 </head>
-<body>
+<body ng-app="homePage">
 
-
-Character Page ?
+	<div class="panel-body">
+		<ul>
+			<li><a href="#view">Employee Table</a></li>
+			<li><a href="#viewReimb">Reimbursements Table</a></li>
+			<li><a href="#createReimb">Create Reimbursement</a></li>
+			<li><a href="#manageTable">Manager Page</a></li>
+		</ul>
+	</div>
+	
+	<div ng-view>
+	
+	</div>
 
 </body>
 </html>
