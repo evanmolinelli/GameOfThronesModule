@@ -36,12 +36,20 @@ public class UserDAOTest {
 		
 		System.out.println("Username created"); 
 	}
-	
+
 	@Test 
+	@Ignore
 	public void testFindAll() {
 		userDAO.findAll(); 
 		System.out.println("returned: " + userDAO.findAll()); 
-		System.out.println("one " + (User) userDAO.findAll().get(1)); 
 	}
+	
+	@Test 
+	@Ignore
+	public void testFindOne() {
+		userDAO.findOne(50);
+		System.out.println("returned" + (User) userDAO.findOne(50)); 
+	}
+	
 
 }
