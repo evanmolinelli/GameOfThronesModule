@@ -13,7 +13,6 @@ import com.revature.beans.Character;
 
 public class CharacterDAO {
 
-	@Autowired
 	private SessionFactory sessionFactory;
 
 	public void setSessionFactory(SessionFactory sessionFactory) {
@@ -48,7 +47,6 @@ public class CharacterDAO {
 	public Character findOne(int id) {
 		return (Character) sessionFactory.getCurrentSession().createCriteria(Character.class)
 				.add(Restrictions.eq("id", id)).uniqueResult();
-//				.list().get(1);
 	}
 
 }

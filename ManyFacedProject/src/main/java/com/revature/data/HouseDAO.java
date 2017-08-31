@@ -19,7 +19,6 @@ import com.revature.beans.House;
 
 public class HouseDAO {
 	
-	@Autowired
 	private SessionFactory sessionFactory; 
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {
@@ -59,8 +58,7 @@ public class HouseDAO {
 	@SuppressWarnings("unchecked")
 	@Transactional
 	public House findOne(Integer id) {
-		return (House) sessionFactory.getCurrentSession().get(House.class, id);
-//				.add(Restrictions.eq("HOUSE_ID", id))
-//				.list();
+		return (House) sessionFactory.getCurrentSession().createCriteria(House.class)
+				.add(Restrictions.eq("id", id)).uniqueResult();
 	}
 }

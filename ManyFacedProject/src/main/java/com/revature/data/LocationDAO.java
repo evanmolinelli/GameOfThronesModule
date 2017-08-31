@@ -10,7 +10,6 @@ import com.revature.beans.Location;
 
 public class LocationDAO {
 
-	@Autowired
 	private SessionFactory sessionFactory;
 
 	public void setSessionFactory(SessionFactory sessionFactory) {

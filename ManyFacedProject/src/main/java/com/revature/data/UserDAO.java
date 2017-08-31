@@ -1,16 +1,17 @@
 package com.revature.data;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.revature.beans.Character;
 import com.revature.beans.User;
 
 public class UserDAO {
 	
-	@Autowired
 	private SessionFactory sessionFactory; 
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {
@@ -23,4 +24,11 @@ public class UserDAO {
 		sessionFactory.getCurrentSession().save(user);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public User findOne(int id) {
+		return (User) sessionFactory.getCurrentSession().createCriteria(User.class)
+				.add(Restrictions.eq("id", id)).uniqueResult();
+//				.list().get(1);
+	}
 }

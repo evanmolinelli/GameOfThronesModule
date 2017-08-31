@@ -13,7 +13,6 @@ import com.revature.beans.Weapons;
 
 public class WeaponDAO {
 
-	@Autowired
 	private SessionFactory sessionFactory; 
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {

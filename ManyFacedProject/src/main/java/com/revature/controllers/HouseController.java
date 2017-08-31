@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.revature.beans.Character;
 import com.revature.beans.House;
 import com.revature.data.HouseDAO;
 
 @Controller
+//@RequestMapping(value="/house")
 public class HouseController {
 
 	@Autowired
@@ -24,10 +24,10 @@ public class HouseController {
 		this.dao = dao;
 	}
 
-	@RequestMapping(value = "/house/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE) // Accept=application/json
+	@RequestMapping(value = "/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE) // Accept=application/json
 	@ResponseBody // do not redirect/forward.. rather write to response
 	public void create(@RequestBody House house) {
-		// look in request body and find Game
+		// look in request body and find house
 		dao.create(house);
 	}// automagically converted JSON->object
 

@@ -3,16 +3,17 @@ package com.revature.data;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.revature.beans.Character;
 import com.revature.beans.Sigil;
 
 public class SigilDAO {
 
-	@Autowired
 	private SessionFactory sessionFactory; 
 	
 	public void setSessionFactory(SessionFactory sessionFactory) {
@@ -40,5 +41,12 @@ public class SigilDAO {
 	public List<Sigil> findAll() {
 		return sessionFactory.getCurrentSession()
 				.createCriteria(Sigil.class).list(); 
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public Sigil findOne(int id) {
+		return (Sigil) sessionFactory.getCurrentSession().createCriteria(Sigil.class)
+				.add(Restrictions.eq("id", id)).uniqueResult();
 	}
 }
