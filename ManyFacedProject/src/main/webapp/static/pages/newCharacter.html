@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html data-ng-app>
+<head>
+  <title>Create Character</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1>Create a Character</h1>
+<form ng-submit="addCharacter()">
+  <!-- don't submit or refresh -->
+    <div class="form-group">
+    <label class="control-label col-sm-2">Name: </label>
+    <div class="col-sm-5">
+    <input  class="form-control col-sm-8" type="text" ng-model="newCharacter.name"/>
+    <div class="col-sm-5"></div>
+  </div>
+  </div>
+  <br><br>
+
+      <div class="form-group">
+    <label class="control-label col-sm-2">Alias: </label>
+    <div class="col-sm-5">
+    <input  class="form-control col-sm-8" type="text" ng-model="newCharacter.alias"/>
+    <div class="col-sm-5"></div>
+  </div>
+  </div>
+  <br><br>
+
+      <div class="form-group">
+    <label class="control-label col-sm-2">Descripition: </label>
+    <div class="col-sm-5">
+    <input  class="form-control col-sm-8" type="text" ng-model="newCharacter.descripition"/>
+    <div class="col-sm-5"></div>
+  </div>
+  </div>
+  <br><br>
+
+      <div class="form-group">
+    <label class="control-label col-sm-2">Height: </label>
+    <div class="col-sm-5">
+    <input  class="form-control col-sm-8" type="text" ng-model="newCharacter.height"/>
+    <div class="col-sm-5"></div>
+  </div>
+  </div>
+  <br><br>
+
+     <div class="form-group">
+    <label class="control-label col-sm-2">Gender: </label>
+    <div class="col-sm-5">
+    <input  class="form-control col-sm-8" type="text" ng-model="newCharacter.name"/>
+    <div class="col-sm-5"></div>
+  </div>
+  </div>
+  <br><br>
+
+    <div class="form-group">
+    <label class="control-label col-sm-2">Status: </label>
+    <div class="col-sm-5">
+      <select class="form-control col-sm-2" name="type" ng-model="newCharacter.status">
+        <option value="1">Noble</option>
+        <option value="2">Maester</option>
+        <option value="3">Peasant</option>
+        <option value="4">Other</option>
+      </select>
+      </div>
+      <br><br>
+  </div>
+
+
+      <div class="form-group">
+    <label class="control-label col-sm-2">House: </label>
+    <div class="col-sm-5">
+      <select class="form-control col-sm-2" name="type" ng-model="newCharacter.house">
+        <option value="1">House Stark</option>
+        <option value="2">House Tully</option>
+        <option value="3">House Poop</option>
+        <option value="4">Other</option>
+      </select>
+      </div>
+      <br><br>
+
+  </div>
+  <div class="form-group">
+    <input class="btn btn-lg btn-success" type="submit" value="Create">
+  </div>
+</form>
+</body>
+</html>
