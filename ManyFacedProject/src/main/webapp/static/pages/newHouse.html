@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html data-ng-app>
+<head>
+<title>Create House</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<form class="form-horizontal">
+		<h2>Create a house</h2>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2"> House Name <span
+				class="glyphicon glyphicon-tower"></span></label>
+			<div class="col-sm-5">
+				<input class="form-control col-sm-8" type="text"
+					placeholder="House Stark" />
+			</div>
+			<div class="col-sm-5"></div>
+		</div>
+		<br>
+		<br>
+
+
+		<div class="form-group">
+			<label class="control-label col-sm-2"> House Lord <span
+				class="glyphicon glyphicon-king"></span></label>
+			<div class="col-sm-5">
+				<input class="form-control col-sm-8" type="text"
+					placeholder="Lord Stark" />
+			</div>
+			<div class="col-sm-5"></div>
+		</div>
+		<br>
+		<br>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2"> House Members <span
+				class="glyphicon glyphicon-pawn"></span></label>
+			<div class="col-sm-5">
+				<input class="form-control col-sm-8" type="text" placeholder="1" />
+				<div class="col-sm-5"></div>
+			</div>
+		</div>
+		<br>
+		<br>
+
+
+		<div class="form-group">
+			<label class="control-label col-sm-2"> Location <span
+				class="glyphicon glyphicon-globe"></span></label>
+			<div class="col-sm-5">
+				<select class="form-control col-sm-2" name="type"
+					placeholder="The North">
+					<option value="1">East</option>
+					<option value="2">West</option>
+					<option value="3">North</option>
+					<option value="4">South</option>
+				</select>
+			</div>
+		</div>
+
+		<br>
+		<br>
+
+		<div class="form-group">
+			<div class="col-sm-6"></div>
+			<div class="col-sm-4">
+				<input class="btn btn-lg btn-success" type="submit" value="Create" />
+			</div>
+		</div>
+	</form>
+</body>
+</html>
