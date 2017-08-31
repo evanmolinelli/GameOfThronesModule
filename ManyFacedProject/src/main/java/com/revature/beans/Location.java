@@ -5,12 +5,16 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "LOCATIONS")
@@ -23,7 +27,7 @@ public class Location {
 	private int id;
 	@Column(name = "LOCATION_NAME")
 	private String name;
-	@OneToMany(mappedBy = "location") // relationship owner
+	@OneToMany(mappedBy = "location", fetch=FetchType.EAGER) // relationship owner
 	private Set<House> house;
 
 	public Location() {
@@ -53,7 +57,7 @@ public class Location {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	@JsonIgnore
 	public Set<House> getHouse() {
 		return house;
 	}

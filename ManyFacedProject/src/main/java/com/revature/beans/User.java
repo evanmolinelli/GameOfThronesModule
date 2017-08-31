@@ -4,12 +4,16 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="GOT_USERS")
@@ -23,9 +27,9 @@ public class User {
 	private String username;
 	@Column(name="PASSWORD")
 	private String password;
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="user", fetch=FetchType.EAGER)
 	private Set<House> house;
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="user", fetch=FetchType.EAGER) 
 	private Set<Character> character;
 	
 	
@@ -57,6 +61,21 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	@JsonIgnore
+	public Set<House> getHouse() {
+		return house;
+	}
+	public void setHouse(Set<House> house) {
+		this.house = house;
+	}
+	@JsonIgnore
+	public Set<Character> getCharacter() {
+		return character;
+	}
+	public void setCharacter(Set<Character> character) {
+		this.character = character;
 	}
 	@Override
 	public String toString() {

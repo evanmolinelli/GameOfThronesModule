@@ -2,6 +2,7 @@ package com.revature.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,6 +11,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "CHARACTERS")
@@ -28,12 +32,12 @@ public class Character {
 	private String gender;
 	@Column(name = "CHARACTER_HEIGHT")
 	private int height; // in centimeters??
-	
-	@ManyToOne 
+
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="HOUSE_ID", nullable=false)
 	private House house;
-	
-	@ManyToOne 
+
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="STATUS_ID", nullable=false)
 	private Status status; // High-born, flea-bottom/peasant, pirate, smuggler
 
@@ -41,7 +45,8 @@ public class Character {
 	private Weapons weapons; //Swords, axes, daggers, direwolf
 	@Column(name = "CHARACTER_ALIAS")
 	private String alias;
-	@ManyToOne 
+
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="USER_ID", nullable = false)
 	private User user; 
 
@@ -122,7 +127,7 @@ public class Character {
 	public House getHosue() {
 		return house; 
 	}
-	
+	@JsonIgnore
 	public User getUser() {
 		return user;
 	}

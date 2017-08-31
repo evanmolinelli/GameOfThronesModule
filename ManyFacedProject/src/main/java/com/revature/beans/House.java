@@ -4,6 +4,9 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity // mapped to Hibernate
 @Table(name = "HOUSE")
 public class House {
@@ -14,21 +17,22 @@ public class House {
 	@SequenceGenerator(name="gen", sequenceName="HOUSE_BEAN_SEQ")
 	private int houseId;
 	
-	@OneToMany(mappedBy="house")
+	@OneToMany(mappedBy="house", fetch=FetchType.EAGER)
 	private Set<Character> character;
 	@Column(name = "HOUSE_NAME")
 	private String houseName;
 	@Column(name = "HOUSE_NUMBERS_MEMBERS")
 	private int numberOfMembers;
 
-	@ManyToOne 
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="LOCATION_ID", nullable=false)
 	private Location location;
 	@OneToOne(mappedBy="house")
 	private Sigil sigil; 
 	@Column(name = "HOUSE_LORD")
 	private String lordOfHouse; // king or queen of the house
-	@ManyToOne 
+
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="USER_ID", nullable = false)
 	private User user; 
 	
@@ -83,7 +87,7 @@ public class House {
 	public String getHouseName() {
 		return houseName;
 	}
-	
+	@JsonIgnore
 	public Set<Character> getCharacter() {
 		return character;
 	}

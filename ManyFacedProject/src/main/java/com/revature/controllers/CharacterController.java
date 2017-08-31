@@ -2,8 +2,10 @@ package com.revature.controllers;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +17,7 @@ import com.revature.beans.Character;
 @Controller
 public class CharacterController {
 	
+	@Autowired
 	private CharacterDAO dao; 
 	
 	public void setDAO(CharacterDAO dao) {
@@ -47,15 +50,14 @@ public class CharacterController {
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<Character> findAll(){
-		System.out.println("Connected?");
 		return dao.findAll();
 	}
 	
 	@RequestMapping(value="/character/{id}", method=RequestMethod.GET,
 			produces=MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public Character findOne() {
-		return dao.findOne(50);
+	public Character findOne(@PathVariable(value="id") Integer id) {
+		return dao.findOne((int)id.intValue());
 	}
 	
 
