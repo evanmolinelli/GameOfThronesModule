@@ -2,11 +2,17 @@ var app = angular.module("homePage", [ "ngRoute" ]); // initializes the angular
 // app
 app.config(function($routeProvider, $locationProvider) {
 	$locationProvider.hashPrefix(""); // don't use !# in the URL
-	$routeProvider.when("/viewReimb", {
-		templateUrl : "allReimb.html",
-		controller : "viewAllReimbCtrl"
+	$routeProvider.when("/createHouse", {
+		templateUrl : "newHouse.html",
+		controller : "createHouseCtrl"
+	}).when("/createCharacter", {
+		templateUrl : "newCharacter.html",
+		controller : "createCharacterCtrl"
+	}).when("/viewHouse", {
+		templateUrl : "allHouse.html",
+		controller : "viewAllHouseCtrl"
 	}).otherwise({
-		templateUrl: "reimburseImage.html"
+		templateUrl: "home.html"
 	});
 });
 
@@ -23,80 +29,36 @@ app.controller("viewAllReimbCtrl", function($scope, $http) {
 		}
 	});
 });
-app.controller("viewCtrl", function($scope, $http) {
-	$http({
-		method : "POST",
-		url : "view.do"
-	}).then(function(response) {
-		if (response.status == 200) {
-			$scope.users = response.data;
-		} else {
-			console.log("No user logged in.");
-		}
-	});
-});
 
-app.controller("createReimbCtrl", function($scope, $http) {
-	$scope.addReimbursement = function() {
-		console.log($scope.newReimb);
-		// data: request body
-		$http({
-			method : "post",
-			url : "createReimb.do",
-			data : $scope.newReimb
-		}).then(function(response) {
-			if (response.status == 200) {
-				$scope.newReimb = response.data;
-			} else {
-				console.log("No user logged in.");
-			}
-		});
-	}
-})
-
-app.controller("managerCtrl", function($scope, $http) {
-	$http({
-		method : "POST",
-		url : "manage.do"
-	}).then(function(response) {
-		if (response.status == 200) {
-			$scope.reimbursements = response.data;
-		} else {
-			console.log("No user logged in.");
-		}
-	});
-	
-	$scope.accept = function(reimbursement){
-		console.log(reimbursement);
-		$http({
-			method : "POST",
-			url : "manageAccept.do",
-			data : reimbursement
-		}).then(function(response) {
-			if (response.status == 200) {
-				console.log(response);
-				location.reload();
-			} else {
-				console.log("No user logged in.");
-			}
-		});
-	}
-	
-	$scope.deny = function(reimbursement){
-		$http({
-			method : "POST",
-			url : "managerDeny.do",
-			data : reimbursement
-		}).then(function(response) {
-			if (response.status == 200) {
-				console.log(response);
-				location.reload();
-			} else {
-				console.log("No user logged in.");
-			}
+angular.module("homePage")
+.controller("createHouseCtrl", function($http, $scope) {
+	$scope.createGame = function() {
+		$http.post("http://localhost:8080/home/house/create",
+				$scope.house).then(function(value) {
+			window.alert("House Added!");
 		});
 	}
 });
+angular.module("homePage")
+.controller("createCharacterCtrl", function($http, $scope) {
+	$scope.createGame = function() {
+		$http.post("http://localhost:8080/home/character/create",
+				$scope.house).then(function(value) {
+			window.alert("Character Added!");
+		});
+	}
+});
+angular.module("homePage")
+.controller("viewAllHouseCtrl", function($http, $scope) {
+	// make a HTTP call to /game/all, get the JSON data from the
+	// HTTP response parameter, then store the JSON object
+	// in the $scope service
+	$http.get("http://localhost:8080/home/house/all")
+	.then(function(response) {
+		$scope.allHouse = response.data;
+	});
+});
+
 
 function checkTextField(field) {
 	 if(document.getElementById('createAmt').value === "" || document.getElementById('createDescr').value === "")
