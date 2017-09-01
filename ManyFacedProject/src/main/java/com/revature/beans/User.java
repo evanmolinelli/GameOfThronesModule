@@ -29,10 +29,6 @@ public class User {
 	private String password;
 	@OneToMany(mappedBy="user", fetch=FetchType.EAGER)
 	private Set<House> house;
-	@OneToMany(mappedBy="user", fetch=FetchType.EAGER) 
-	private Set<Character> character;
-	
-	
 	
 	public User() {
 		super();
@@ -69,13 +65,7 @@ public class User {
 	public void setHouse(Set<House> house) {
 		this.house = house;
 	}
-	@JsonIgnore
-	public Set<Character> getCharacter() {
-		return character;
-	}
-	public void setCharacter(Set<Character> character) {
-		this.character = character;
-	}
+	
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + "]";

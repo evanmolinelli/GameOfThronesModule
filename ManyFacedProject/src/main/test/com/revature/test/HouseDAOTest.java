@@ -1,5 +1,7 @@
 package com.revature.test;
 
+import java.util.List;
+
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -53,12 +55,16 @@ public class HouseDAOTest {
 	}
 	
 	@Test
-	@Transactional
-	@Ignore //lazy loading error ?
+	@Transactional//lazy loading error ?
 	public void testFindOne(){
 		
-		houseDAO.findOne(200);
-		System.out.println("returned: " + houseDAO.findOne(200).toString());
+		List<House> houses =  houseDAO.findAll();
+		System.out.println("size" + houses.size());
+		for (House h : houses)
+		{
+			System.out.println("returned: " + h.toString());
+		}
+
 		
 	}
 

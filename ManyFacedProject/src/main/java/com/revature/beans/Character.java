@@ -47,10 +47,6 @@ public class Character {
 	@Column(name = "CHARACTER_ALIAS")
 	private String alias;
 
-	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="USER_ID", nullable = false)
-	private User user; 
-
 	public Character() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -124,17 +120,9 @@ public class Character {
 	public void setHouse(House house) {
 		this.house = house;
 	}
-	
+	@JsonIgnore
 	public House getHouse() {
 		return house; 
-	}
-
-	public User getUser() {
-		return user;
-	}
-	
-	public void setUser(User user) {
-		this.user = user;
 	}
 	
 
