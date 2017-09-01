@@ -11,6 +11,9 @@ app.config(function($routeProvider, $locationProvider) {
 	}).when("/viewHouse", {
 		templateUrl : "allHouse.html",
 		controller : "viewAllHouseCtrl"
+	}).when("/pickSigil", {
+		templateUrl : "NewSigil.html",
+//		controller : "newSigilCtrl"
 	}).otherwise({
 		templateUrl: "default.html"
 	});

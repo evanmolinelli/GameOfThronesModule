@@ -26,15 +26,15 @@ public class HelloController {
 		String username = request.getParameter("username"); 
 		String password = request.getParameter("pwd"); 
 		
-		System.out.println("request parameter" + username);
-		System.out.println("request paramter" + password);
+//		System.out.println("request parameter" + username);
+//		System.out.println("request paramter" + password);
 			
 			User user = dao.getUsername(request.getParameter("username"));
 			
-			System.out.println(user.getUsername());
-			System.out.println(user.getPassword());
+//			System.out.println(user.getUsername());
+//			System.out.println(user.getPassword());
 			
-			System.out.println(user);
+//			System.out.println(user);
 			
 		String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
 			
