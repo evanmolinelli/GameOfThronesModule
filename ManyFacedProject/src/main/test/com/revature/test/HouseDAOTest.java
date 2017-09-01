@@ -61,5 +61,11 @@ public class HouseDAOTest {
 		System.out.println("returned: " + houseDAO.findOne(200).toString());
 		
 	}
+	
+	@Test
+	public void testfindAll() {
+		houseDAO.findAll();
+		System.out.println("returned " + houseDAO.findAll());
+	}
 
 }

@@ -25,24 +25,23 @@ public class HelloController {
 	public String getHomePageAfterLogin(HttpServletRequest request){
 		String username = request.getParameter("username"); 
 		String password = request.getParameter("pwd"); 
-		return "redirect:/pages/home.html";
 		
-//		System.out.println("request parameter" + username);
-//		System.out.println("request paramter" + password);
+		System.out.println("request parameter" + username);
+		System.out.println("request paramter" + password);
 			
-//			User user = dao.getUsername(request.getParameter("username"));
-//			
-//			
-//		String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
-//			
-//			if(BCrypt.checkpw(password, hashed)) {
-//				System.out.println(hashed);
-//				System.out.println(password);
-//				System.out.println("Passed");
-//				return "redirect:/pages/home.html";
-//			} else {
-//				System.out.println("Failed");
-//				return "redirect:/index.html";
-//			}
+			User user = dao.getUsername(request.getParameter("username"));
+			
+			
+		String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+			
+			if(BCrypt.checkpw(password, hashed)) {
+				System.out.println(hashed);
+				System.out.println(password);
+				System.out.println("Passed");
+				return "redirect:/pages/home.html";
+			} else {
+				System.out.println("Failed");
+				return "redirect:/index.html";
+			}
 	}
 }
