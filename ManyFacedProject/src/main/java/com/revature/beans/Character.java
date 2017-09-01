@@ -120,7 +120,6 @@ public class Character {
 	public void setHouse(House house) {
 		this.house = house;
 	}
-	@JsonIgnore
 	public House getHouse() {
 		return house; 
 	}

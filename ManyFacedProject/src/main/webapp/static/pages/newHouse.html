@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html data-ng-app>
+
 <head>
 <title>Create House</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,7 +14,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<form class="form-horizontal">
+	<form class="form-horizontal" ng-submit="createHouse()">
 		<h2>Create a house</h2>
 
 		<div class="form-group">
@@ -25,7 +22,7 @@
 				class="glyphicon glyphicon-tower"></span></label>
 			<div class="col-sm-5">
 				<input class="form-control col-sm-8" type="text"
-					placeholder="House Stark" />
+					placeholder="House Stark" ng-model="house.houseName"/>
 			</div>
 			<div class="col-sm-5"></div>
 		</div>
@@ -38,7 +35,7 @@
 				class="glyphicon glyphicon-king"></span></label>
 			<div class="col-sm-5">
 				<input class="form-control col-sm-8" type="text"
-					placeholder="Lord Stark" />
+					placeholder="Lord Stark" ng-model="house.lordOfHouse" />
 			</div>
 			<div class="col-sm-5"></div>
 		</div>
@@ -49,7 +46,7 @@
 			<label class="control-label col-sm-2"> House Members <span
 				class="glyphicon glyphicon-pawn"></span></label>
 			<div class="col-sm-5">
-				<input class="form-control col-sm-8" type="text" placeholder="1" />
+				<input class="form-control col-sm-8" type="text" placeholder="1" ng-model="house.numberOfMembers" />
 				<div class="col-sm-5"></div>
 			</div>
 		</div>
@@ -62,7 +59,7 @@
 				class="glyphicon glyphicon-globe"></span></label>
 			<div class="col-sm-5">
 				<select class="form-control col-sm-2" name="type"
-					placeholder="The North">
+					placeholder="The North" ng-model="house.location.id">
 					<option value="1">East</option>
 					<option value="2">West</option>
 					<option value="3">North</option>
@@ -82,4 +79,4 @@
 		</div>
 	</form>
 </body>
-</html>
+

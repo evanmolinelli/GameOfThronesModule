@@ -9,7 +9,7 @@ app.config(function($routeProvider, $locationProvider) {
 		templateUrl : "newCharacter.html",
 		controller : "createCharacterCtrl"
 	}).when("/viewHouse", {
-		templateUrl : "allHouse.html",
+		templateUrl : "allHouses.html",
 		controller : "viewAllHouseCtrl"
 	}).when("/pickSigil", {
 		templateUrl : "NewSigil.html",
@@ -36,16 +36,32 @@ app.config(function($routeProvider, $locationProvider) {
 angular.module("homePage")
 .controller("createHouseCtrl", function($http, $scope) {
 	$scope.createHouse = function() {
-		$http.post("http://localhost:8080/home/house/create",
+		console.log($scope.house);
+		console.log("loaded");
+		$http.post("http://localhost:8080/ManyFacedProject/house/create",
 				$scope.house).then(function(value) {
 			window.alert("House Added!");
 		});
 	}
 });
+
+//angular.module("homePage")
+//.controller("createHouseCtrl", function($scope, $http) {
+//	$scope.addHouse = function(){
+//		console.log($scope.newHouse);
+//		// data: request body 
+//		$http({
+//			method: "POST", url: "create.do", data: $scope.newHouse 
+//		}).then(function(response) {
+//			console.log(response.status);
+//		});
+//	}
+//});
+
 angular.module("homePage")
 .controller("createCharacterCtrl", function($http, $scope) {
 	$scope.createCharacter = function() {
-		$http.post("http://localhost:8080/home/character/create",
+		$http.post("http://localhost:8080/ManyFacedProject/character/create",
 				$scope.character).then(function(value) {
 			window.alert("Character Added!");
 		});
@@ -56,7 +72,7 @@ angular.module("homePage")
 	// make a HTTP call to /game/all, get the JSON data from the
 	// HTTP response parameter, then store the JSON object
 	// in the $scope service
-	$http.get("http://localhost:8080/home/house/all")
+	$http.get("http://localhost:8080/ManyFacedProject/house/all")
 	.then(function(response) {
 		$scope.allHouse = response.data;
 	});
