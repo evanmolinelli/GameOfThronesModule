@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html data-ng-app>
+<html>
 <head>
 <title>ToDo</title>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-<!-- Latest compiled and minified CSS -->
+ <script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script> 
+
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -24,37 +24,21 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>Character</th>
-				<th>Character Alias</th>
-				<th>Gender</th>
 				<th>House</th>
-				<th>Status</th>
+				<th>House Members</th>
+				<th>House Id</th>
+				<th>House Location</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody ng-repeat="house in allHouse">
 			<tr>
-				<td>Sansa Stark</td>
-				<td>"Lady of WinterFell"</td>
-				<td>Female</td>
-				<td>House Stark</td>
-				<td>Noble</td>
-			</tr>
-			<tr>
-				<td>Arya Stark</td>
-				<td>Baby Faced Assassin</td>
-				<td>Female</td>
-				<td>House Stark</td>
-				<td>Noble</td>
-			</tr>
-			<tr>
-				<td>Poop Stark</td>
-				<td>Baby Faced Poop</td>
-				<td>Male</td>
-				<td>House Stark</td>
-				<td>Maeyster</td>
+				<td>{{house.houseName}}</td>
+				<td>{{house.numberOfMembers}}</td>
+				<td>{{house.houseId}}</td>
+				<td>{{house.location.name}}<td>
+				<td></td>
 			</tr>
 		</tbody>
 	</table>
-	</div>
 </body>
 </html>

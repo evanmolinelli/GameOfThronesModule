@@ -9,7 +9,7 @@ app.config(function($routeProvider, $locationProvider) {
 		templateUrl : "newCharacter.html",
 		controller : "createCharacterCtrl"
 	}).when("/viewHouse", {
-		templateUrl : "allHouse.html",
+		templateUrl : "allHouses.html",
 		controller : "viewAllHouseCtrl"
 	}).otherwise({
 		templateUrl: "default.html"
@@ -53,7 +53,7 @@ angular.module("homePage")
 	// make a HTTP call to /game/all, get the JSON data from the
 	// HTTP response parameter, then store the JSON object
 	// in the $scope service
-	$http.get("http://localhost:8080/home/house/all")
+	$http.get("http://localhost:8080/ManyFacedProject/house/all")
 	.then(function(response) {
 		$scope.allHouse = response.data;
 	});

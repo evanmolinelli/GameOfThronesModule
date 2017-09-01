@@ -34,7 +34,6 @@ public class HouseDAOTest {
 	}
 	
 	@Test
-	@Ignore
 	@Transactional
 	public void testCreate() {
 
@@ -42,9 +41,9 @@ public class HouseDAOTest {
 		User user = userDAO.findOne(50); 
 	
 		House bean = new House();
-		bean.setHouseName("Poop");
-		bean.setLordOfHouse("King Poop");
-		bean.setNumberOfMembers(1);
+		bean.setHouseName("HOUSE ALVIN");
+		bean.setLordOfHouse("King ALVIN");
+		bean.setNumberOfMembers(999999);
 		bean.setLocation(loc);
 		bean.setUser(user); 
 		System.out.println(bean.toString());
@@ -55,6 +54,7 @@ public class HouseDAOTest {
 	}
 	
 	@Test
+	@Ignore
 	@Transactional//lazy loading error ?
 	public void testFindOne(){
 		
@@ -66,6 +66,13 @@ public class HouseDAOTest {
 		}
 
 		
+	}
+	
+	@Test
+	@Ignore
+	public void testfindAll() {
+		houseDAO.findAll();
+		System.out.println("returned " + houseDAO.findAll());
 	}
 
 }
