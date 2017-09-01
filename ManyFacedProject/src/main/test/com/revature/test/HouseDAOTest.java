@@ -1,5 +1,7 @@
 package com.revature.test;
 
+import java.util.List;
+
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -32,7 +34,6 @@ public class HouseDAOTest {
 	}
 	
 	@Test
-	@Ignore
 	@Transactional
 	public void testCreate() {
 
@@ -40,9 +41,9 @@ public class HouseDAOTest {
 		User user = userDAO.findOne(50); 
 	
 		House bean = new House();
-		bean.setHouseName("Poop");
-		bean.setLordOfHouse("King Poop");
-		bean.setNumberOfMembers(1);
+		bean.setHouseName("HOUSE ALVIN");
+		bean.setLordOfHouse("King ALVIN");
+		bean.setNumberOfMembers(999999);
 		bean.setLocation(loc);
 		bean.setUser(user); 
 		System.out.println(bean.toString());
@@ -53,16 +54,22 @@ public class HouseDAOTest {
 	}
 	
 	@Test
-	@Transactional
-	@Ignore //lazy loading error ?
+	@Ignore
+	@Transactional//lazy loading error ?
 	public void testFindOne(){
 		
-		houseDAO.findOne(200);
-		System.out.println("returned: " + houseDAO.findOne(200).toString());
+		List<House> houses =  houseDAO.findAll();
+		System.out.println("size" + houses.size());
+		for (House h : houses)
+		{
+			System.out.println("returned: " + h.toString());
+		}
+
 		
 	}
 	
 	@Test
+	@Ignore
 	public void testfindAll() {
 		houseDAO.findAll();
 		System.out.println("returned " + houseDAO.findAll());
