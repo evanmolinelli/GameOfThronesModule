@@ -4,13 +4,12 @@ import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.revature.beans.Character;
-import com.revature.beans.House;
+
 import com.revature.beans.User;
 
 public class UserDAO {
@@ -52,4 +51,11 @@ public class UserDAO {
 				.add(Restrictions.eq("id", id)).uniqueResult();
 //				.list().get(1);
 	}
+	
+	@Transactional
+	public User getUsername(String username) {
+		return (User) sessionFactory.getCurrentSession().createCriteria(User.class)
+				.add(Restrictions.eq("username", username)).uniqueResult();
+	}
+	
 }

@@ -140,6 +140,12 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.6.4</version>
 		</dependency>
+				<dependency>
+			<groupId>de.svenkubiak</groupId>
+			<artifactId>jBCrypt</artifactId>
+			<version>0.4</version>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -147,7 +153,6 @@
 			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>
-
 
 	</dependencies>
 

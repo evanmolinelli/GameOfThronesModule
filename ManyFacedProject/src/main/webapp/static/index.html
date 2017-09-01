@@ -1,41 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>ALL MEN MUST DIE</title>
-<style>
-
-body{
-	background:  url(http://www.imgbase.info/images/safe-wallpapers/tv_movies/game_of_thrones/18549_game_of_thrones.jpg) no-repeat fixed center; 
-}
-
-#btn {
-    background-color: #989898; 
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-   }
-
-#form {
-	position: absolute;
-	top: 66%;
-	left: 43%;
-	margin: -20px -100px; 
-	display: block;
-}
-</style>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<style>
+	body {
+	background: url("http://cdn.wallpapersafari.com/20/75/Vq2ndS.jpg") no-repeat fixed center; 
+	}
+	
+	label, h2 {
+		color: white;
+	}
+</style>
 <body>
-	<div id="form">
-		<form action="login" method=POST>
-		Username <input type="text" name="username" placeholder="username"  /> <br/>
-		Password <input type="text" name="password" placeholder="password" /> <br/>
-			<input id="btn" type="submit" value="ENTER THE GAME OF THRONES" />
-		</form>
-	</div>
+
+<div class="container">
+  <h2>Valar Morghulis</h2>
+  <form class="form-horizontal" action="login" method="POST">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="username">Username:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="username" placeholder="Enter email" name="username">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Password:</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <div class="checkbox">
+          <label><input type="checkbox" name="remember"> Remember me</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
 </body>
 </html>
