@@ -3,8 +3,10 @@ package com.revature.test;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.beans.User;
 import com.revature.data.UserDAO;
@@ -51,5 +53,13 @@ public class UserDAOTest {
 		System.out.println("returned" + (User) userDAO.findOne(50)); 
 	}
 	
-
+	@Test 
+	public void testUsername() {
+		userDAO.getUsername("Evan"); 
+		System.out.println(userDAO.getUsername("Evan"));
+		System.out.println("returned " +  userDAO.getUsername("Evan").getUsername()); 
+		System.out.println("password" + userDAO.getUsername("Evan").getPassword());
+		
+	}
+	
 }
