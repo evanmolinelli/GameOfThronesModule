@@ -12,11 +12,11 @@ app.config(function($routeProvider, $locationProvider) {
 		templateUrl : "allHouses.html",
 		controller : "viewAllHouseCtrl"
 	}).otherwise({
-		templateUrl: "home.html"
+		templateUrl: "default.html"
 	});
 });
 
-app.controller("viewAllReimbCtrl", function($scope, $http) {
+/*app.controller("viewAllReimbCtrl", function($scope, $http) {
 	$http({
 		method : "post",
 		url : "allReimb.do"
@@ -29,10 +29,10 @@ app.controller("viewAllReimbCtrl", function($scope, $http) {
 		}
 	});
 });
-
+*/
 angular.module("homePage")
 .controller("createHouseCtrl", function($http, $scope) {
-	$scope.createGame = function() {
+	$scope.createHouse = function() {
 		$http.post("http://localhost:8080/home/house/create",
 				$scope.house).then(function(value) {
 			window.alert("House Added!");
@@ -41,9 +41,9 @@ angular.module("homePage")
 });
 angular.module("homePage")
 .controller("createCharacterCtrl", function($http, $scope) {
-	$scope.createGame = function() {
+	$scope.createCharacter = function() {
 		$http.post("http://localhost:8080/home/character/create",
-				$scope.house).then(function(value) {
+				$scope.character).then(function(value) {
 			window.alert("Character Added!");
 		});
 	}
@@ -60,11 +60,11 @@ angular.module("homePage")
 });
 
 
-function checkTextField(field) {
+/*function checkTextField(field) {
 	 if(document.getElementById('createAmt').value === "" || document.getElementById('createDescr').value === "")
 	 { window.alert("Must be valid reimbursement.");
 	 	return false; }
 	 else
 		 {console.log("good to go.")
 		 	return true;}
-	}
+	}*/
