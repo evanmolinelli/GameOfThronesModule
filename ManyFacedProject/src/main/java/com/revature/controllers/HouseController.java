@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.revature.beans.Character;
 import com.revature.beans.House;
 import com.revature.data.HouseDAO;
+import com.revature.data.LocationDAO;
+import com.revature.data.UserDAO;
 
 @Controller
 // @RequestMapping(value="/house")
@@ -25,15 +27,27 @@ public class HouseController {
 
 	@Autowired
 	private HouseDAO dao;
+	private UserDAO userdao;
+	private LocationDAO locdao; 
 
 	public void setDao(HouseDAO dao) {
 		this.dao = dao;
+	}
+	
+	public void setUserDAO(UserDAO userDAO) {
+		this.userdao = userdao; 
+	}
+	
+	public void setLocationDAO(LocationDAO locDAO) {
+		this.locdao = locdao; 
 	}
 
 	@RequestMapping(value = "/house/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE) // Accept=application/json
 	@ResponseBody // do not redirect/forward.. rather write to response
 	public void create(@RequestBody House house) {
 		// look in request body and find house
+		userdao.getUsername("Evan"); 
+		locdao.findAll().get(2);
 		dao.create(house);
 	}// automagically converted JSON->object
 
