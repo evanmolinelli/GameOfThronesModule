@@ -53,7 +53,6 @@ public class CharacterDAOTest {
 		bean.setAlias("Baby Lady of Winterfell");
 		bean.setStatus(status); 
 		bean.setHouse(house);
-		bean.setUser(user);
 		System.out.println(bean.toString());
 		
 		characterDAO.create(bean);

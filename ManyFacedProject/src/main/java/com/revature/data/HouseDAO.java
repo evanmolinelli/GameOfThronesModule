@@ -43,9 +43,9 @@ public class HouseDAO {
 	
 	@SuppressWarnings("unchecked")
 	@Transactional
-	public House findOne(House house) {
+	public House findOne(int id) {
 		return (House) sessionFactory.getCurrentSession()
-				.createCriteria(House.class).list().get(house.getHouseId()); 
+				.createCriteria(House.class).list().get(id); 
 	}
 	
 	@SuppressWarnings("unchecked")
