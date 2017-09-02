@@ -13,7 +13,7 @@ import com.revature.data.UserDAO;
 
 @Controller
 public class HelloController {
-	
+
 	@Autowired
 	private UserDAO dao;
 
@@ -21,32 +21,43 @@ public class HelloController {
 		this.dao = dao;
 	}
 
-	@RequestMapping(value="login", method=RequestMethod.POST)
-	public String getHomePageAfterLogin(HttpServletRequest request){
-		String username = request.getParameter("username"); 
-		String password = request.getParameter("pwd"); 
-		
-//		System.out.println("request parameter" + username);
-//		System.out.println("request paramter" + password);
-			
-			User user = dao.getUsername(request.getParameter("username"));
-			
-//			System.out.println(user.getUsername());
-//			System.out.println(user.getPassword());
-			
-//			System.out.println(user);
+	@RequestMapping(value = "login", method = RequestMethod.POST)
+	public String getHomePageAfterLogin(HttpServletRequest request) {
+		String username = request.getParameter("username");
+		String password = request.getParameter("pwd");
 
-			
+		User user = dao.getUsername(request.getParameter("username"));
+
+		// System.out.println(user.getUsername());
+		// System.out.println(user.getPassword());
+
+		// System.out.println(user);
+
 		String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+
+		if (BCrypt.checkpw(password, hashed)) {
+			System.out.println(hashed);
+			System.out.println(password);
+			System.out.println("Passed");
 			
-			if(BCrypt.checkpw(password, hashed)) {
-				System.out.println(hashed);
-				System.out.println(password);
-				System.out.println("Passed");
-				return "redirect:/pages/home.html";
-			} else {
-				System.out.println("Failed");
-				return "redirect:/index.html";
-			}
+			
+			return "redirect:/pages/home.html";
+		} else {
+			System.out.println("Failed");
+			return "redirect:/index.html";
+		}
 	}
+
+	@RequestMapping(value = "create", method = RequestMethod.POST)
+	public String getCreateUser(HttpServletRequest request) {
+		String username = request.getParameter("createUser");
+		String pwd = request.getParameter("createPassword");
+		
+		User user = new User(username,pwd);
+		System.out.println("created"); 
+		dao.create(user);
+
+		return "redirect:/pages/home.html";
+	}
+
 }

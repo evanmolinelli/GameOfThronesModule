@@ -34,11 +34,11 @@ public class HouseController {
 		this.dao = dao;
 	}
 	
-	public void setUserDAO(UserDAO userDAO) {
+	public void setUserDAO(UserDAO userdao) {
 		this.userdao = userdao; 
 	}
 	
-	public void setLocationDAO(LocationDAO locDAO) {
+	public void setLocationDAO(LocationDAO locdao) {
 		this.locdao = locdao; 
 	}
 
@@ -46,8 +46,8 @@ public class HouseController {
 	@ResponseBody // do not redirect/forward.. rather write to response
 	public void create(@RequestBody House house) {
 		// look in request body and find house
-		userdao.getUsername("Evan"); 
-		locdao.findAll().get(2);
+		house.setUser(userdao.findOne(50)); 
+		house.setLocation(locdao.findAll().get(2));
 		dao.create(house);
 	}// automagically converted JSON->object
 
