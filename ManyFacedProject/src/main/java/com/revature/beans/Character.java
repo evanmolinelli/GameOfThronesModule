@@ -43,6 +43,7 @@ public class Character {
 	private Status status; // High-born, flea-bottom/peasant, pirate, smuggler
 
 	@OneToOne(mappedBy="character") //? 
+	@JoinColumn(name="WEAPON_ID", nullable=true)
 	private Weapons weapons; //Swords, axes, daggers, direwolf
 	@Column(name = "CHARACTER_ALIAS")
 	private String alias;

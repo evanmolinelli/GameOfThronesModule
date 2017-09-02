@@ -40,8 +40,8 @@ public class HelloController {
 		String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
 			
 			if(BCrypt.checkpw(password, hashed)) {
-				System.out.println(hashed);
-				System.out.println(password);
+//				System.out.println(hashed);
+//				System.out.println(password);
 				System.out.println("Passed");
 				return "redirect:/pages/home.html";
 			} else {
