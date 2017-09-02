@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.revature.beans.Character;
 import com.revature.beans.House;
+import com.revature.beans.Location;
 import com.revature.data.HouseDAO;
 import com.revature.data.LocationDAO;
 import com.revature.data.UserDAO;
@@ -27,7 +28,9 @@ public class HouseController {
 
 	@Autowired
 	private HouseDAO dao;
+	@Autowired
 	private UserDAO userdao;
+	@Autowired
 	private LocationDAO locdao; 
 
 	public void setDao(HouseDAO dao) {
@@ -46,8 +49,7 @@ public class HouseController {
 	@ResponseBody // do not redirect/forward.. rather write to response
 	public void create(@RequestBody House house) {
 		// look in request body and find house
-		userdao.getUsername("Evan"); 
-		locdao.findAll().get(2);
+		house.setUser(userdao.getUsername("Evan")); 
 		dao.create(house);
 	}// automagically converted JSON->object
 
@@ -73,5 +75,14 @@ public class HouseController {
 	@ResponseBody
 	public House findOne(@PathVariable(value = "id") Integer id) {
 		return dao.findOne((int) id.intValue());
+	}
+	
+	@RequestMapping(value = "/location/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public List<Location> findAllLocations() {
+//		for (Location l : locdao.findAll()){
+//			System.out.println(l.getName());
+//		}
+		return locdao.findAll();
 	}
 }

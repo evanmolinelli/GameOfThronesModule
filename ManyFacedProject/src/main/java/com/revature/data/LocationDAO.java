@@ -18,11 +18,6 @@ public class LocationDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
-	@Transactional
-	public Location findLocation(int id) {
-		return (Location) sessionFactory.getCurrentSession().createCriteria(Location.class);
-	}
-
 	@SuppressWarnings("unchecked")
 	@Transactional
 	public List<Location> findAll() {

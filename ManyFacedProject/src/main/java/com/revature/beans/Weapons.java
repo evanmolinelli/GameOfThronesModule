@@ -21,8 +21,7 @@ public class Weapons {
 	private int weaponId;
 	@Column(name = "WEAPON_NAME")
 	private String weaponName;
-	@OneToOne
-	@JoinColumn(name="CHARACTER_ID", nullable=true)
+	@OneToOne(mappedBy="weapons")
 	private Character character;
 
 	public Weapons() {
