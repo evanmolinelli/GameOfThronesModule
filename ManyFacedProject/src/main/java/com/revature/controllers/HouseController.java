@@ -37,11 +37,11 @@ public class HouseController {
 		this.dao = dao;
 	}
 	
-	public void setUserDAO(UserDAO userDAO) {
+	public void setUserDAO(UserDAO userdao) {
 		this.userdao = userdao; 
 	}
 	
-	public void setLocationDAO(LocationDAO locDAO) {
+	public void setLocationDAO(LocationDAO locdao) {
 		this.locdao = locdao; 
 	}
 

@@ -19,6 +19,13 @@ app.config(function($routeProvider, $locationProvider) {
 	});
 });
 
+//angular.module("homePage")
+//.controller("newSigilCtrl", function($scope) {
+//	$scope.slide = function (dir) {
+//	    $('.carousel').carousel(dir);
+//	};
+//});
+
 /*app.controller("viewAllReimbCtrl", function($scope, $http) {
 	$http({
 		method : "post",
