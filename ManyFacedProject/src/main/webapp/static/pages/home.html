@@ -2,6 +2,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script
@@ -11,15 +16,29 @@
 </head>
 <body ng-app="homePage">
 
-	<div class="panel-body">
-		<ul>
-			<li><a href="#createHouse">Create House</a></li>
-			<li><a href="#createCharacter">Create Character</a></li>
-			<li><a href="#viewHouse">Display Houses</a></li>
-			<li><a href="#pickSigil">Pick Sigil</a></li>
-		</ul>
-	</div>
-
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#"> Game of Thrones </a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="#createHouse">Create House</a></li>
+					<li><a href="#createCharacter">Create Character</a></li>
+					<li><a href="#viewHouse">Display Houses</a></li>
+					<li><a href="#pickSigil">Pick Sigil</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
 	<div class="main" style="min-height: 100%">
 		<center>
 			<h1>Game of Thrones</h1>
@@ -28,6 +47,5 @@
 			<div ng-view></div>
 		</div>
 	</div>
-
 </body>
 </html>

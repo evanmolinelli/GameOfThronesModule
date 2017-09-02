@@ -39,8 +39,6 @@ public class HelloController {
 			System.out.println(hashed);
 			System.out.println(password);
 			System.out.println("Passed");
-			
-			
 			return "redirect:/pages/home.html";
 		} else {
 			System.out.println("Failed");
@@ -58,6 +56,7 @@ public class HelloController {
 		dao.create(user);
 
 		return "redirect:/pages/home.html";
+
 	}
 
 }

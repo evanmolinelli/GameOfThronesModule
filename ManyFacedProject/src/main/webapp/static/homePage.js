@@ -67,13 +67,52 @@ angular.module("homePage")
 
 angular.module("homePage")
 .controller("createCharacterCtrl", function($http, $scope) {
-	$scope.createCharacter = function() {
+	$http({
+		method : "get",
+		url : "http://localhost:8080/ManyFacedProject/house/all"
+	}).then(function(response) {
+		if (response.status == 200) {
+			$scope.houses = response.data; 
+		}
+	});
+
+	$http({
+		method : "get",
+		url : "http://localhost:8080/ManyFacedProject/status/all"
+	}).then(function(response) {
+		if (response.status == 200) {
+			$scope.status = response.data; 
+		}
+	});
+	
+	$http({
+		method : "get",
+		url : "http://localhost:8080/ManyFacedProject/weapons/all"
+	}).then(function(response) {
+		if (response.status == 200) {
+			$scope.weapon = response.data; 
+		}
+	});
+		
+	$scope.addCharacter = function(houses) {
+		
 		$http.post("http://localhost:8080/ManyFacedProject/character/create",
-				$scope.character).then(function(value) {
+				$scope.newCharacter).then(function(value) {
 			window.alert("Character Added!");
 		});
 	}
 });
+
+/*angular.module("homePage")
+.controller("houseInCharacter", function($http, $scope) {
+	$scope.houses = function() {
+		$http.get("http://localhost:8080/ManyFacedProject/house/all")
+		.then(function(response) {
+			console.log(response.data);
+		});
+	}
+});*/
+
 angular.module("homePage")
 .controller("viewAllHouseCtrl", function($http, $scope) {
 	// make a HTTP call to /game/all, get the JSON data from the
