@@ -46,16 +46,31 @@ public class HelloController {
 	}
 
 	@RequestMapping(value = "create", method = RequestMethod.POST)
-	public String getCreateUser(@RequestParam String username, @RequestParam String pwd, ModelMap model) {
-		model.put("username", username);
-		model.put("pwd", pwd);
+	public String getCreateUser(@RequestParam String createUser, @RequestParam String createPassword, ModelMap model) {
+		System.out.println(createUser);
+		System.out.println(createPassword);
+		model.put("username", createUser);
+		model.put("pwd", createPassword);
 		
-		User user = new User(username,pwd);
+		User user = new User(createUser,createPassword);
 		System.out.println("created"); 
 		dao.create(user);
 
 		return "redirect:/pages/home.html";
 
 	}
+	
+//	@RequestMapping(value = "create", method = RequestMethod.POST)
+//	public String getCreateUser(HttpServletRequest request) {
+//		String username = request.getParameter("createUser");
+//		String pwd = request.getParameter("createPassword");
+//		
+//		User user = new User(username,pwd);
+//		System.out.println("created"); 
+//		dao.create(user);
+//
+//		return "redirect:/pages/home.html";
+//
+//	}
 
 }

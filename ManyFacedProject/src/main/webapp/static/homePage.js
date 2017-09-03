@@ -44,6 +44,15 @@ angular.module("homePage").controller(
 					$scope.locations = response.data;
 				}
 			});
+			
+			$http({
+				method : "get",
+				url : "http://localhost:8080/ManyFacedProject/sigil/all"
+			}).then(function(response) {
+				if (response.status == 200) {
+					$scope.sigils = response.data;
+				}
+			});
 
 			$scope.createHouse = function() {
 				console.log($scope.house);
