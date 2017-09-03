@@ -24,35 +24,6 @@ public class HelloController {
 	public void setDao(UserDAO dao) {
 		this.dao = dao;
 	}
-
-//	@RequestMapping(value = "login", method = RequestMethod.POST)
-//	public String getHomePageAfterLogin(HttpServletRequest request) {
-//		String username = request.getParameter("username");
-//		String password = request.getParameter("pwd");
-//
-//		User user = dao.getUsername(request.getParameter("username"));
-//
-//		// System.out.println(user.getUsername());
-//		// System.out.println(user.getPassword());
-//
-//		// System.out.println(user);
-//
-//		String hashed = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
-//
-//		if (BCrypt.checkpw(password, hashed)) {
-//			request.getSession().setAttribute("user", user);
-////			req.getRequestDispatcher("index.html").forward(req, resp);
-//			System.out.println(hashed);
-//			System.out.println(password);
-//			System.out.println("Passed");
-//			return "redirect:/pages/home.html";
-////			return "redirect:/pages/home.html";
-////			return "request.getRequestDispatcher(':/pages/home.html').forward(request, response)";
-//		} else {
-//			System.out.println("Failed");
-//			return "redirect:/index.html";
-//		}
-//	}
 	
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String getHomePageAfterLogin(@RequestParam String username, @RequestParam String pwd, ModelMap model) {
@@ -75,9 +46,9 @@ public class HelloController {
 	}
 
 	@RequestMapping(value = "create", method = RequestMethod.POST)
-	public String getCreateUser(HttpServletRequest request) {
-		String username = request.getParameter("createUser");
-		String pwd = request.getParameter("createPassword");
+	public String getCreateUser(@RequestParam String username, @RequestParam String pwd, ModelMap model) {
+		model.put("username", username);
+		model.put("pwd", pwd);
 		
 		User user = new User(username,pwd);
 		System.out.println("created"); 
