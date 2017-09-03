@@ -27,7 +27,8 @@ public class House {
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="LOCATION_ID", nullable=false)
 	private Location location;
-	@OneToOne(mappedBy="house")
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="SIGIL_ID", nullable=false, unique=true)
 	private Sigil sigil; 
 	@Column(name = "HOUSE_LORD")
 	private String lordOfHouse; // king or queen of the house
