@@ -21,8 +21,7 @@ public class Sigil {
 	private int sigilId;
 	@Column(name = "SIGIL_NAME")
 	private String sigilName;
-	@OneToOne
-	@JoinColumn(name="HOUSE_ID", nullable=false, unique=true)
+	@OneToOne(mappedBy="sigil")
 	private House house;
 
 	public Sigil() {
