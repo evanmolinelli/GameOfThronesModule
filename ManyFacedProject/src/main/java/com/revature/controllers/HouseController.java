@@ -35,29 +35,30 @@ public class HouseController {
 	@Autowired
 	private UserDAO userdao;
 	@Autowired
-	private LocationDAO locdao; 
+	private LocationDAO locdao;
 
 	public void setDao(HouseDAO dao) {
 		this.dao = dao;
 	}
-	
+
 	public void setUserDAO(UserDAO userdao) {
-		this.userdao = userdao; 
+		this.userdao = userdao;
 	}
-	
+
 	public void setLocationDAO(LocationDAO locdao) {
-		this.locdao = locdao; 
+		this.locdao = locdao;
 	}
 
 	@RequestMapping(value = "/house/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE) // Accept=application/json
 	@ResponseBody // do not redirect/forward.. rather write to response
 	public void create(@RequestBody House house, @ModelAttribute("username") String username, ModelMap model) {
 		// look in request body and find house
-		System.out.println(username); 
-		//if the model contains the stored username create the house. 
+<<<<<<< HEAD
+		System.out.println(username);
+		//if the model contains the stored username create the house.
 		if(model.containsAttribute("username")) {
-			house.setUser(userdao.getUsername(username)); 
-			System.out.println(username); 
+			house.setUser(userdao.getUsername(username));
+			System.out.println(username);
 			dao.create(house);
 		} else {
 			System.out.println("uh ohhh");
@@ -87,7 +88,7 @@ public class HouseController {
 	public House findOne(@PathVariable(value = "id") Integer id) {
 		return dao.findOne((int) id.intValue());
 	}
-	
+
 	@RequestMapping(value = "/location/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<Location> findAllLocations() {
@@ -96,4 +97,8 @@ public class HouseController {
 //		}
 		return locdao.findAll();
 	}
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 65173c31b953913d181ca980541042d33875695d

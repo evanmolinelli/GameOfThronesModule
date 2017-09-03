@@ -34,6 +34,7 @@ public class HouseDAOTest {
 	}
 	
 	@Test
+	@Ignore
 	@Transactional
 	public void testCreate() {
 
@@ -69,10 +70,9 @@ public class HouseDAOTest {
 	}
 	
 	@Test
-	@Ignore
 	public void testfindAll() {
-		houseDAO.findAll();
-		System.out.println("returned " + houseDAO.findAll());
+		locationDAO.findAll();
+		System.out.println("returned " + locationDAO.findAll());
 	}
 
 }

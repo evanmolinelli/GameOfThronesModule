@@ -42,6 +42,15 @@ app.config(function($routeProvider, $locationProvider) {
 */
 angular.module("homePage")
 .controller("createHouseCtrl", function($http, $scope) {
+	$http({
+		method : "get",
+		url : "http://localhost:8080/ManyFacedProject/location/all"
+	}).then(function(response) {
+		if (response.status == 200) {
+			$scope.locations = response.data; 
+		}
+	});
+	
 	$scope.createHouse = function() {
 		console.log($scope.house);
 		console.log("loaded");
