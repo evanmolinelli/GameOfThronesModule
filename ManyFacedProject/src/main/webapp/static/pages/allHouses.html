@@ -16,7 +16,7 @@
 <style>
 	body {
 	background: url("http://i.imgur.com/EDeT6cn.jpg");
-	background-size: 1080px 1300px;
+	background-size: 1000px 1100px;
 	} 
  	table {
 	background-color: (255, 255, 255, 0.5);
@@ -37,7 +37,7 @@
 				<th>House Location</th>
 			</tr>
 		</thead>
-		<tbody ng-repeat="house in allHouse">
+		<tbody ng-repeat="house in allHouse" ng-click="myModal(house)" data-toggle="modal" data-target="#myModal">
 			<tr>
 				<td>{{house.houseName}}</td>
 				<td>{{house.numberOfMembers}}</td>
@@ -47,5 +47,6 @@
 			</tr>
 		</tbody>
 	</table>
+	
 </body>
 </html>

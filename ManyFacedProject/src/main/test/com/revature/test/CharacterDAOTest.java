@@ -37,7 +37,7 @@ public class CharacterDAOTest {
 	
 	@Test
 	@Transactional
-	
+	@Ignore
 	public void testCreate() {
 		
 		Status status = statusDAO.findAll().get(0); 
@@ -88,13 +88,14 @@ public class CharacterDAOTest {
 	}
 	
 	@Test
-	@Ignore
+	
 	public void testAll() {
 		characterDAO.findAll();
 		System.out.println("returned" + characterDAO.findAll().toString()); 
 	}
 	
 	@Test
+	@Ignore
 	public void testFindOne() {
 		characterDAO.findOne(100); 
 		System.out.println("returned" + characterDAO.findOne(100).toString()); 
