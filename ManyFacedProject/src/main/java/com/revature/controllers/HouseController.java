@@ -53,7 +53,6 @@ public class HouseController {
 	@ResponseBody // do not redirect/forward.. rather write to response
 	public void create(@RequestBody House house, @ModelAttribute("username") String username, ModelMap model) {
 		// look in request body and find house
-<<<<<<< HEAD
 		System.out.println(username);
 		//if the model contains the stored username create the house.
 		if(model.containsAttribute("username")) {
@@ -97,8 +96,5 @@ public class HouseController {
 //		}
 		return locdao.findAll();
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 65173c31b953913d181ca980541042d33875695d
+
