@@ -31,17 +31,17 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>House</th>
-				<th>House Members</th>
-				<th>House Id</th>
-				<th>House Location</th>
+				<th><mark>House</mark></th>
+				<th><mark>House Members</mark></th>
+				<th><mark>Lord of the House</mark></th>
+				<th><mark>House Location</mark></th>
 			</tr>
 		</thead>
 		<tbody ng-repeat="house in allHouse" ng-click="myModal(house)" data-toggle="modal" data-target="#myModal">
 			<tr>
 				<td>{{house.houseName}}</td>
 				<td>{{house.numberOfMembers}}</td>
-				<td>{{house.houseId}}</td>
+				<td>{{house.lordOfHouse}}</td>
 				<td>{{house.location.name}}<td>
 				<td></td>
 			</tr>
