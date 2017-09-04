@@ -21,8 +21,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.revature.beans.Character;
 import com.revature.beans.House;
 import com.revature.beans.Location;
+import com.revature.beans.Sigil;
 import com.revature.data.HouseDAO;
 import com.revature.data.LocationDAO;
+import com.revature.data.SigilDAO;
 import com.revature.data.UserDAO;
 
 @Controller
@@ -36,6 +38,8 @@ public class HouseController {
 	private UserDAO userdao;
 	@Autowired
 	private LocationDAO locdao;
+	@Autowired
+	private SigilDAO sigildao;
 
 	public void setDao(HouseDAO dao) {
 		this.dao = dao;
@@ -47,6 +51,10 @@ public class HouseController {
 
 	public void setLocationDAO(LocationDAO locdao) {
 		this.locdao = locdao;
+	}
+	
+	public void setSigilDAO(SigilDAO sigildao) {
+		this.sigildao = sigildao;
 	}
 
 	@RequestMapping(value = "/house/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE) // Accept=application/json
@@ -95,6 +103,11 @@ public class HouseController {
 //			System.out.println(l.getName());
 //		}
 		return locdao.findAll();
+	}
+	@RequestMapping(value = "/sigil/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public List<Sigil> findAllSigils() {
+		return sigildao.findAll();
 	}
 }
 

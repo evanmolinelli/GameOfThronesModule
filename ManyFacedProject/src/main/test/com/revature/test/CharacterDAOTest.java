@@ -37,7 +37,6 @@ public class CharacterDAOTest {
 	
 	@Test
 	@Transactional
-	@Ignore
 	public void testCreate() {
 		
 		Status status = statusDAO.findAll().get(0); 

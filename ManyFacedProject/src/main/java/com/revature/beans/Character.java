@@ -124,7 +124,14 @@ public class Character {
 	public House getHouse() {
 		return house; 
 	}
-	
+
+	public Weapons getWeapons() {
+		return weapons;
+	}
+
+	public void setWeapons(Weapons weapons) {
+		this.weapons = weapons;
+	}
 
 	@Override
 	public String toString() {
