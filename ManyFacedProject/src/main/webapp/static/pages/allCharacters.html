@@ -2,9 +2,44 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>All Characters within a House</title>
 </head>
 <body>
+
+	<label>House:</label>
+	<div class="col-sm-5">
+		<fieldset>
+			<select ng-model="id" ng-options="x.houseId as x.houseName for x in houses" ng-click="displayChar()"></select>
+		</fieldset>
+		<!-- <div>You selected: {{id}}</div> -->
+	</div>
+	
+		<table class="table table-striped" ng-show="show">
+		<thead>
+			<tr>
+				<th><mark>First Name</mark></th>
+				<th><mark>Last Name</mark></th>
+				<th><mark>Gender</mark></th>
+				<th><mark>Height</mark></th>
+				<th><mark>Status</mark></th>
+				<th><mark>Weapons</mark></th>
+				<th><mark>Alias</mark></th>
+			</tr>
+		</thead>
+		<tbody ng-repeat="c in characters">
+			<tr>
+				<td>{{c.firstName}}</td>
+				<td>{{c.lastName}}</td>
+				<td>{{c.gender}}</td>
+				<td>{{c.height}}</td>
+				<td>{{c.status.status}}</td>
+				<td>{{c.weapons.weaponName}}</td>
+				<td>{{c.alias}}</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	</div>
 
 </body>
 </html>
