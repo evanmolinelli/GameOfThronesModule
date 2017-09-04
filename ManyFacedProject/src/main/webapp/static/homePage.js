@@ -14,7 +14,7 @@ app.config(function($routeProvider, $locationProvider) {
 		controller : "viewAllHouseCtrl"
 	}).when("/pickSigil", {
 		templateUrl : "NewSigil.html",
-	// controller : "newSigilCtrl"
+	 controller : "createSigilCtrl"
 	}).otherwise({
 		templateUrl : "default.html"
 	});
@@ -65,18 +65,20 @@ angular.module("homePage").controller(
 			}
 		});
 
-// angular.module("homePage")
-// .controller("createHouseCtrl", function($scope, $http) {
-// $scope.addHouse = function(){
-// console.log($scope.newHouse);
-// // data: request body
-// $http({
-// method: "POST", url: "create.do", data: $scope.newHouse
-// }).then(function(response) {
-// console.log(response.status);
-// });
-// }
-// });
+ angular.module("homePage").controller("createSigilCtrl",
+		function($scope, $http) {
+			$scope.addSigil = function() {
+				console.log($scope.newSigil);
+				// data: request body
+				$http({
+					method : "POST",
+					url : "http://localhost:8080/ManyFacedProject/sigil/create",
+					data : $scope.newSigil
+				}).then(function(response) {
+					console.log(response.status);
+				});
+			}
+		});
 
 angular
 		.module("homePage")

@@ -20,7 +20,7 @@ public class SigilDAO {
 		this.sessionFactory = sessionFactory;
 	}
 	
-//	@Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+	@Transactional(isolation = Isolation.READ_COMMITTED, propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 	public void create(Sigil sigil) {
 		//opens a session, beings transaction 
 		sessionFactory.getCurrentSession().save(sigil); 
