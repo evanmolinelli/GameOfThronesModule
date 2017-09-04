@@ -32,7 +32,7 @@ img {
 </head>
 <body>
 	<div class="container">
-		<form class="form-horizontal">
+		<form class="form-horizontal" ng-submit="addSigil()">
 			<h2>Create a Sigil for your House</h2>
 
 			<div class="form-group">
@@ -40,9 +40,12 @@ img {
 					class="glyphicon glyphicon-tower"></span></label>
 				<div class="col-sm-5">
 					<input class="form-control col-sm-8" type="text"
-						placeholder="i.e. House Stark" />
+						placeholder="i.e. Direwolf, Lion" ng-model="newSigil.sigilName"/>
 				</div>
 				<div class="col-sm-5"></div>
+			</div>
+			<div class="form-group">
+				<input class="btn btn-lg btn-success" type="submit" value="Create">
 			</div>
 
 </html>

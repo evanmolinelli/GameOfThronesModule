@@ -1,11 +1,14 @@
 package com.revature.beans;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -21,8 +24,8 @@ public class Sigil {
 	private int sigilId;
 	@Column(name = "SIGIL_NAME")
 	private String sigilName;
-	@OneToOne(mappedBy="sigil")
-	private House house;
+	@OneToMany(mappedBy="sigil")
+	private Set<House> house;
 
 	public Sigil() {
 		super();

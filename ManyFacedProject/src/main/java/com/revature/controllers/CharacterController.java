@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.revature.data.CharacterDAO;
+import com.revature.data.SigilDAO;
 import com.revature.data.StatusDAO;
 import com.revature.data.WeaponDAO;
 import com.revature.beans.Character;
+import com.revature.beans.Sigil;
 import com.revature.beans.Status;
 import com.revature.beans.Weapons;
 
@@ -30,7 +32,9 @@ public class CharacterController {
 	private StatusDAO sdao;
 	@Autowired
 	private WeaponDAO wdao;
-	
+	@Autowired
+	private SigilDAO sigdao;
+
 	public void setDAO(CharacterDAO dao) {
 		this.dao = dao;
 	}
@@ -38,9 +42,13 @@ public class CharacterController {
 	public void setSdao(StatusDAO sdao) {
 		this.sdao = sdao;
 	}
-	
+
 	public void setWdao(WeaponDAO wdao) {
 		this.wdao = wdao;
+	}
+
+	public void setSigdao(SigilDAO sigdao) {
+		this.sigdao = sigdao;
 	}
 
 	@RequestMapping(value = "/character/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE) // consumes
@@ -84,17 +92,27 @@ public class CharacterController {
 	public List<Status> findAllStatus() {
 		return sdao.findAll();
 	}
-	
+
 	@RequestMapping(value = "/weapons/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<Weapons> findAllWeapons() {
 		return wdao.findAll();
 	}
-	
+
+
 	@RequestMapping(value = "/charactersInHouse/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public List<Character> findCharactersInHouse(@PathVariable(value = "id") Integer id) {
 		return dao.findAllCharactersInHouse((int) id.intValue());
 	}
-	
+
+
+
+	@RequestMapping(value = "/sigil/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody // do not redirect/forward.. instead write to response
+	public void create(@RequestBody Sigil sigil) {
+		sigdao.create(sigil);
+		// black magic to convert JSON -> object
+	}
+
 }

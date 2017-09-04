@@ -42,7 +42,7 @@ public class Character {
 	@JoinColumn(name="STATUS_ID", nullable=false)
 	private Status status; // High-born, flea-bottom/peasant, pirate, smuggler
 
-	@OneToOne(fetch=FetchType.EAGER)//? 
+	@ManyToOne(fetch=FetchType.EAGER)//? 
 	@JoinColumn(name="WEAPON_ID", nullable=false)
 	private Weapons weapons; //Swords, axes, daggers, direwolf
 	@Column(name = "CHARACTER_ALIAS")
