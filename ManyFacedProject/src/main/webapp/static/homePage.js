@@ -15,27 +15,12 @@ app.config(function($routeProvider, $locationProvider) {
 	}).when("/pickSigil", {
 		templateUrl : "NewSigil.html",
 	 controller : "createSigilCtrl"
-	}).when("/viewCharacter", {
-		templateUrl : "allCharacters.html",
-		 controller : "viewCharactersCtrl"
-		}).otherwise({
+	}).otherwise({
 		templateUrl : "default.html"
 	});
 });
 
-// angular.module("homePage")
-// .controller("newSigilCtrl", function($scope) {
-// $scope.slide = function (dir) {
-// $('.carousel').carousel(dir);
-// };
-// });
 
-/*
- * app.controller("viewAllReimbCtrl", function($scope, $http) { $http({ method :
- * "post", url : "allReimb.do" }).then(function(response) { if (response.status ==
- * 200) { $scope.reimbursements = response.data;
- *  } else { console.log("No user logged in."); } }); });
- */
 angular.module("homePage").controller(
 		"createHouseCtrl",
 		function($http, $scope) {
@@ -130,12 +115,6 @@ angular
 					}
 				});
 
-/*
- * angular.module("homePage") .controller("houseInCharacter", function($http,
- * $scope) { $scope.houses = function() {
- * $http.get("http://localhost:8080/ManyFacedProject/house/all")
- * .then(function(response) { console.log(response.data); }); } });
- */
 
 angular.module("homePage").controller(
 		"viewAllHouseCtrl",
@@ -150,57 +129,27 @@ angular.module("homePage").controller(
 					$scope.myModal = function(house){
 						$scope.poop = house;
 					}
-//					$http.get("http://localhost:8080/ManyFacedProject/charactersInHouse/1")
-//					.success(function(response) {
-//						$scope.allHouse = repsonse;
-//					})
 					});
-			
-			
-//			$http(
-//					{
-//						method : "get",
-//						url : "http://localhost:8080/ManyFacedProject/charactersInHouse/1"
-//					}).then(function(response) {
-//						$scope.house = '';
-//						$scope.myModal = function(house) {
-//							$scope.house=house
-//						}
-//				if (response.status == 200) {
-//					$scope.charactersInHouse = response.data;
-//				}
-//			});
 		});
 
-angular.module("homePage").controller(
-		"viewCharactersCtrl",
-		function($http, $scope) {
-
-			$scope.show = true;
-			$http.get("http://localhost:8080/ManyFacedProject/house/all").then(
-					function(response) {
-						$scope.houses = response.data;
-					});
-					$scope.displayChar = function() {
-//						console.log($scope.id);
-						var url1 = "http://localhost:8080/ManyFacedProject/charactersInHouse/";
-						var url2 = url1.concat($scope.id); // ,
-																// {params:{"id":
-																// 50}}
-						$http.get(url2).then(function(response) {
-							$scope.characters = response.data;
-						});
-					}
-
-		});
-/*
- * angular.module('app', ['ui.bootstrap']); function CarouselDemoCtrl($scope){
- * $scope.myInterval = 1000; $scope.slides = [ { image:
- * 'http://lorempixel.com/400/200/' }, { image:
- * 'http://lorempixel.com/400/200/food' }, { image:
- * 'http://lorempixel.com/400/200/sports' }, { image:
- * 'http://lorempixel.com/400/200/people' } ]; }
- */
+/*angular.module('app', ['ui.bootstrap']);
+function CarouselDemoCtrl($scope){
+  $scope.myInterval = 1000;
+  $scope.slides = [
+    {
+      image: 'http://lorempixel.com/400/200/'
+    },
+    {
+      image: 'http://lorempixel.com/400/200/food'
+    },
+    {
+      image: 'http://lorempixel.com/400/200/sports'
+    },
+    {
+      image: 'http://lorempixel.com/400/200/people'
+    }
+  ];
+}*/
 /*
  * function checkTextField(field) {
  * if(document.getElementById('createAmt').value === "" ||
