@@ -90,4 +90,11 @@ public class CharacterController {
 	public List<Weapons> findAllWeapons() {
 		return wdao.findAll();
 	}
+	
+	@RequestMapping(value = "/charactersInHouse/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public List<Character> findCharactersInHouse(@PathVariable(value = "id") Integer id) {
+		return dao.findAllCharactersInHouse((int) id.intValue());
+	}
+	
 }

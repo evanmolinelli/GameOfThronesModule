@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.beans.Character;
+import com.revature.beans.House;
 
 public class CharacterDAO {
 
@@ -47,6 +48,16 @@ public class CharacterDAO {
 	public Character findOne(int id) {
 		return (Character) sessionFactory.getCurrentSession().createCriteria(Character.class)
 				.add(Restrictions.eq("id", id)).uniqueResult();
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<Character> findAllCharactersInHouse(int id) {
+		return sessionFactory.getCurrentSession()
+				.createCriteria(Character.class)
+				.add(Restrictions.eq("house.id", id))
+				.list();
+				
 	}
 
 }
