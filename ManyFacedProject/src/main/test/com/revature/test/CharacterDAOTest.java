@@ -36,6 +36,7 @@ public class CharacterDAOTest {
 	}
 	
 	@Test
+	@Ignore
 	@Transactional
 	public void testCreate() {
 		
@@ -87,6 +88,7 @@ public class CharacterDAOTest {
 	}
 	
 	@Test
+	@Ignore
 	
 	public void testAll() {
 		characterDAO.findAll();
@@ -94,9 +96,16 @@ public class CharacterDAOTest {
 	}
 	
 	@Test
-	@Ignore
 	public void testFindOne() {
-		characterDAO.findOne(100); 
-		System.out.println("returned" + characterDAO.findOne(100).toString()); 
+		characterDAO.findOne(1); 
+		System.out.println("returned" + characterDAO.findOne(1).toString()); 
+	}
+	
+	@Test
+	@Ignore
+	public void testFindingCharactersInHouse() {
+		characterDAO.findAllCharactersInHouse(1);
+		System.out.println("returned" + characterDAO.findAllCharactersInHouse(1).toString());
+		
 	}
 }

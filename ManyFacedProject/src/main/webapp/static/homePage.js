@@ -143,11 +143,30 @@ angular.module("homePage").controller(
 			$http.get("http://localhost:8080/ManyFacedProject/house/all").then(
 					function(response) {
 						$scope.allHouse = response.data;
-						$scope.myModal = function(house){
-							alert('Characters: ' + house.character);
-						}
+						$scope.poop = '';
+					$scope.myModal = function(house){
+						$scope.poop = house;
+					}
+//					$http.get("http://localhost:8080/ManyFacedProject/charactersInHouse/1")
+//					.success(function(response) {
+//						$scope.allHouse = repsonse;
+//					})
 					});
-
+			
+			
+//			$http(
+//					{
+//						method : "get",
+//						url : "http://localhost:8080/ManyFacedProject/charactersInHouse/1"
+//					}).then(function(response) {
+//						$scope.house = '';
+//						$scope.myModal = function(house) {
+//							$scope.house=house
+//						}
+//				if (response.status == 200) {
+//					$scope.charactersInHouse = response.data;
+//				}
+//			});
 		});
 
 /*angular.module('app', ['ui.bootstrap']);

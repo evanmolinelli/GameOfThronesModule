@@ -34,7 +34,7 @@ public class CharacterController {
 	private WeaponDAO wdao;
 	@Autowired
 	private SigilDAO sigdao;
-	
+
 	public void setDAO(CharacterDAO dao) {
 		this.dao = dao;
 	}
@@ -99,10 +99,20 @@ public class CharacterController {
 		return wdao.findAll();
 	}
 
-	@RequestMapping(value = "/sigil/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE) 
+
+	@RequestMapping(value = "/charactersInHouse/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public List<Character> findCharactersInHouse(@PathVariable(value = "id") Integer id) {
+		return dao.findAllCharactersInHouse((int) id.intValue());
+	}
+
+
+
+	@RequestMapping(value = "/sigil/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody // do not redirect/forward.. instead write to response
 	public void create(@RequestBody Sigil sigil) {
 		sigdao.create(sigil);
 		// black magic to convert JSON -> object
 	}
+
 }
