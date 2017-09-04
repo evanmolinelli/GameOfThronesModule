@@ -1,6 +1,9 @@
 package com.revature.data;
 
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -11,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.beans.Character;
 import com.revature.beans.House;
+import com.revature.beans.Location;
 
 public class CharacterDAO {
 
@@ -52,12 +56,13 @@ public class CharacterDAO {
 	
 	@SuppressWarnings("unchecked")
 	@Transactional
-	public List<Character> findAllCharactersInHouse(int id) {
-		return sessionFactory.getCurrentSession()
+	public Set<Character> findAllCharactersInHouse(int id) {
+		ArrayList<Character> list = (ArrayList<Character>) sessionFactory.getCurrentSession()
 				.createCriteria(Character.class)
 				.add(Restrictions.eq("house.id", id))
 				.list();
-				
+		Set<Character> s = new LinkedHashSet<Character>(list);
+		return s;
 	}
 
 }

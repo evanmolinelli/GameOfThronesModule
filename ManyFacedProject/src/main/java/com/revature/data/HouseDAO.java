@@ -1,6 +1,9 @@
 package com.revature.data;
 
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -49,9 +52,11 @@ public class HouseDAO {
 	
 	@SuppressWarnings("unchecked")
 	@Transactional
-	public List<House> findAll() {
-		return sessionFactory.getCurrentSession()
+	public Set<House> findAll() {
+		ArrayList<House>list= (ArrayList<House>) sessionFactory.getCurrentSession()
 				.createCriteria(House.class).list(); 
+		Set<House> s = new LinkedHashSet<House>(list);
+		return s;
 	}
 	
 }

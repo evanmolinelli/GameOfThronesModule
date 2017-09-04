@@ -10,6 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.revature.beans.*;
+import com.revature.data.CharacterDAO;
 import com.revature.data.HouseDAO;
 import com.revature.data.LocationDAO;
 import com.revature.data.UserDAO;
@@ -21,6 +22,7 @@ public class HouseDAOTest {
 	private static HouseDAO houseDAO;
 	private static LocationDAO locationDAO;
 	private static UserDAO userDAO; 
+	private static CharacterDAO charDao;
 	
 	@BeforeClass
 	public static void initialize() {
@@ -30,6 +32,7 @@ public class HouseDAOTest {
 		houseDAO = context.getBean(HouseDAO.class);
 		locationDAO = context.getBean(LocationDAO.class);
 		userDAO = context.getBean(UserDAO.class); 
+		charDao = context.getBean(CharacterDAO.class); 
 		
 	}
 	
@@ -38,14 +41,14 @@ public class HouseDAOTest {
 	@Transactional
 	public void testCreate() {
 
-		Location loc = locationDAO.findAll().get(4);
+//		Location loc = locationDAO.findAll();
 		User user = userDAO.findOne(50); 
 	
 		House bean = new House();
 		bean.setHouseName("HOUSE ALVIN");
 		bean.setLordOfHouse("King ALVIN");
 		bean.setNumberOfMembers(999999);
-		bean.setLocation(loc);
+//		bean.setLocation(loc);
 		bean.setUser(user); 
 		System.out.println(bean.toString());
 		houseDAO.create(bean);
@@ -59,20 +62,19 @@ public class HouseDAOTest {
 	@Transactional//lazy loading error ?
 	public void testFindOne(){
 		
-		List<House> houses =  houseDAO.findAll();
-		System.out.println("size" + houses.size());
-		for (House h : houses)
-		{
-			System.out.println("returned: " + h.toString());
-		}
+//		List<House> houses =  houseDAO.findAll();
+//		System.out.println("size" + houses.size());
+//		for (House h : houses)
+//		{
+//			System.out.println("returned: " + h.toString());
+//		}
 
 		
 	}
 	
 	@Test
 	public void testfindAll() {
-		locationDAO.findAll();
-		System.out.println("returned " + locationDAO.findAll());
+		System.out.println("returned " + charDao.findAllCharactersInHouse(50));
 	}
 
 }

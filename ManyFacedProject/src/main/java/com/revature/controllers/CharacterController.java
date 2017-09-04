@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,11 +103,9 @@ public class CharacterController {
 
 	@RequestMapping(value = "/charactersInHouse/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public List<Character> findCharactersInHouse(@PathVariable(value = "id") Integer id) {
+	public Set<Character> findCharactersInHouse(@PathVariable(value = "id") Integer id) {
 		return dao.findAllCharactersInHouse((int) id.intValue());
 	}
-
-
 
 	@RequestMapping(value = "/sigil/create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody // do not redirect/forward.. instead write to response

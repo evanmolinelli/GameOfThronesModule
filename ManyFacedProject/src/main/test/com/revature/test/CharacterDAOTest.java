@@ -41,7 +41,7 @@ public class CharacterDAOTest {
 	public void testCreate() {
 		
 		Status status = statusDAO.findAll().get(0); 
-		House house = houseDAO.findAll().get(0); 
+//		House house = houseDAO.findAll().get(0); 
 		User user = userDAO.findOne(50); 
 		
 		Character bean = new Character(); 
@@ -52,7 +52,7 @@ public class CharacterDAOTest {
 		bean.setHeight(90);
 		bean.setAlias("Baby Lady of Winterfell");
 		bean.setStatus(status); 
-		bean.setHouse(house);
+//		bean.setHouse(house);
 		System.out.println(bean.toString());
 		
 		characterDAO.create(bean);

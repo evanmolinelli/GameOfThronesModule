@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.naming.Context;
 
@@ -86,7 +87,7 @@ public class HouseController {
 
 	@RequestMapping(value = "/house/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public List<House> findAll() {
+	public Set<House> findAll() {
 		return dao.findAll();
 	}// automagically converted object->JSON
 
@@ -98,7 +99,7 @@ public class HouseController {
 
 	@RequestMapping(value = "/location/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public List<Location> findAllLocations() {
+	public Set<Location> findAllLocations() {
 //		for (Location l : locdao.findAll()){
 //			System.out.println(l.getName());
 //		}

@@ -1,6 +1,9 @@
 package com.revature.data;
 
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
@@ -20,8 +23,10 @@ public class LocationDAO {
 
 	@SuppressWarnings("unchecked")
 	@Transactional
-	public List<Location> findAll() {
-		return sessionFactory.getCurrentSession().createCriteria(Location.class).list();
+	public Set<Location> findAll() {
+		ArrayList<Location> list = (ArrayList<Location>) sessionFactory.getCurrentSession().createCriteria(Location.class).list();
+		Set<Location> s = new LinkedHashSet<Location>(list);
+		return s;
 	}
 	
 	@SuppressWarnings("unchecked")
