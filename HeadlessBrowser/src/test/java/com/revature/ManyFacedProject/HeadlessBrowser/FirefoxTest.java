@@ -13,10 +13,10 @@ public class FirefoxTest {
 	   @Test
 	   public void openBlazeMeterTest() {
 	       WebDriver driver = new HtmlUnitDriver(BrowserVersion.INTERNET_EXPLORER, true);
-	       driver.get("http://http://52.14.9.154:8080/index.html");
-	       WebElement title = driver.findElement(By.xpath("//title"));
+	       driver.get("http://52.14.9.154:8080/index.html");
+	       driver.findElement(By.name("username"));
 	       System.out.println("********************************************************");
-	       System.out.println("*" + title.getAttribute("text") + "*");
+	       System.out.println("*Passed*");
 	       System.out.println("********************************************************");
 	       driver.quit();
 	   }
